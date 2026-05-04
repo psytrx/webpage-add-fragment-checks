@@ -183,6 +183,32 @@ const awesomeSoftwareEngineeringGamesCollection = defineCollection({
 		}),
 });
 
+// Schema for awesome-software-engineering-movies
+const awesomeSoftwareEngineeringMoviesCollection = defineCollection({
+	loader: glob({ pattern: '**/[^_]*.json', base: './src/content/awesome-software-engineering-movies' }),
+	schema: ({ image }) =>
+		z.object({
+			name: z.string(),
+			slug: z.string(),
+			title: z.string(),
+			link: z.string().url(),
+			videoID: z.string(),
+			language: z.array(z.string()),
+			tags: z.array(z.string()),
+			description: z.string(),
+			// ISO-8601 duration, e.g. "PT12M49S"
+			duration: z.string(),
+			// ISO-8601 timestamp, e.g. "2018-07-13T13:44:42Z"
+			publishedAt: z.string(),
+			channel: z.object({
+				id: z.string(),
+				title: z.string(),
+			}),
+			viewCount: z.number(),
+			image: image(),
+		}),
+});
+
 // Export a single `collections` object to register your collection(s)
 export const collections = {
 	podcast: podcastEpisodeCollection,
@@ -191,4 +217,5 @@ export const collections = {
 	'meetup-rhine-ruhr': meetupRhineRuhrCollection,
 	germantechpodcasts: germantechpodcastsCollection,
 	'awesome-software-engineering-games': awesomeSoftwareEngineeringGamesCollection,
+	'awesome-software-engineering-movies': awesomeSoftwareEngineeringMoviesCollection,
 };
