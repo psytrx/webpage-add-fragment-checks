@@ -1,0 +1,90 @@
+---
+import Footer from '../../components/Footer.astro';
+import MainHead from '../../components/MainHead.astro';
+import Nav from '../../components/Nav.astro';
+import SoftwareEngineeringMoviePreview from '../../components/SoftwareEngineeringMoviePreview.astro';
+import TagBadge from '../../components/TagBadge.astro';
+import { URLify } from '../../scripts/urlify.js';
+import { orderByName } from '../../scripts/sorting.js';
+import { getCollection } from "astro:content";
+
+import awesomeSoftwareEngineeringMovieTags from '../../data/awesome-software-engineering-movies-tags.json';
+
+export async function getStaticPaths() {
+	const allMovies = await getCollection("awesome-software-engineering-movies");
+	const allMovieTagsUniqueInclNull = [...new Set(allMovies.flatMap((p) => p.data.tags))];
+	const allMovieTagsUnique = allMovieTagsUniqueInclNull.filter(function (tag) {
+		return tag != null;
+	});
+
+	return allMovieTagsUnique.map((tag) => {
+		let t = URLify(tag);
+		let tagUrlName = t.url;
+		let tagName = t.name;
+
+		return {
+			params: { tag: tagUrlName },
+			props: { tagName, allMovies },
+		};
+	});
+}
+
+const { tagName: tagHumanName, allMovies } = Astro.props;
+
+let title = `${tagHumanName} Filme für Softwareentwickler:innen - Engineering Kiosk`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+let customTitle = '';
+let tagDescription_short = '';
+let tagDescription_long = '';
+if (awesomeSoftwareEngineeringMovieTags.hasOwnProperty(tagHumanName)) {
+	tagDescription_short = awesomeSoftwareEngineeringMovieTags[tagHumanName]['short_desc'];
+	tagDescription_long = awesomeSoftwareEngineeringMovieTags[tagHumanName]['long_desc'];
+	customTitle = awesomeSoftwareEngineeringMovieTags[tagHumanName]['title'] || '';
+}
+
+// Filter movies by tag, sort by name
+let movies = allMovies.filter(function (p) {
+	if (p.data.tags == null) {
+		return false;
+	}
+	return p.data.tags.includes(tagHumanName);
+});
+
+movies = movies.sort(orderByName);
+---
+
+<html lang="de">
+	<head>
+		<MainHead title={title} description={tagDescription_short} {canonicalURL} ogImageAlt="Filme für Softwareentwickler" />
+	</head>
+
+	<body class="antialiased bg-body text-body font-body">
+		<div>
+			<Nav title={title} />
+
+			<section class="py-8 md:py-12 lg:pb-12 bg-coolGray-50" style="background-image: url('/images/elements/pattern-light-big.svg'); background-repeat: no-repeat; background-position: center top;">
+				<div class="container px-4 mx-auto">
+					<div class="flex flex-wrap items-center mb-12">
+						<div class="w-full md:w-3/4 mb-8 md:mb-0">
+							<TagBadge name="Kuratierte Filme für Softwareentwickler:innen" />
+							<h1 class="mb-4 text-4xl md:text-5xl leading-tight text-darkCoolGray-900 font-bold tracking-tight">
+								{customTitle || `Die besten ${tagHumanName}-Filme für Softwareentwickler:innen`}
+							</h1>
+							{tagDescription_long && <p class="text-lg md:text-xl text-coolGray-500 font-medium">{tagDescription_long}</p>}
+						</div>
+						<div class="w-full md:w-1/4">
+							<a class="flex items-center justify-center py-2 px-4 ml-auto text-sm leading-5 text-yellow-50 font-medium bg-yellow-500 hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 md:max-w-max rounded-md" href="https://github.com/EngineeringKiosk/awesome-software-engineering-movies">
+								Die Filme Liste auf GitHub <img class="ml-2 w-8" src="/images/brands/github-black.svg" alt="awesome-software-engineering-movies auf GitHub" title="awesome-software-engineering-movies auf GitHub" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{movies.map((movie) => <SoftwareEngineeringMoviePreview movie={movie} />)}
+
+			<Footer />
+		</div>
+	</body>
+</html>

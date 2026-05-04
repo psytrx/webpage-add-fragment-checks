@@ -1,0 +1,72 @@
+---
+import Footer from '../../components/Footer.astro';
+import MainHead from '../../components/MainHead.astro';
+import Nav from '../../components/Nav.astro';
+import SoftwareEngineeringMoviePreview from '../../components/SoftwareEngineeringMoviePreview.astro';
+import TagBadge from '../../components/TagBadge.astro';
+import { getCollection } from "astro:content";
+import { orderByName } from '../../scripts/sorting.js';
+import { buildMoviesDirectoryJsonLd } from '../../scripts/jsonld-builders.js';
+
+let title = 'Filme für Softwareentwickler:innen - Engineering Kiosk';
+let description = 'Kuratierte Liste der besten Filme und Dokumentationen für Softwareentwickler:innen: Geschichten zu Programmiersprachen, Open Source und Tech-Kultur – ausgewählt für Entwickler:innen und Tech-Nerds.';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Build the list of Movies
+let awesomeSoftwareEngineeringMovies = await getCollection("awesome-software-engineering-movies");
+awesomeSoftwareEngineeringMovies.sort(orderByName);
+
+const jsonLd = buildMoviesDirectoryJsonLd(awesomeSoftwareEngineeringMovies, canonicalURL, Astro.site);
+---
+
+<html lang="de">
+	<head>
+		<MainHead title={title} description={description} {canonicalURL} ogImageAlt="Filme für Softwareentwickler" {jsonLd} />
+	</head>
+
+	<body class="antialiased bg-body text-body font-body">
+		<div>
+			<Nav title={title} />
+
+			<section class="py-8 md:py-12 lg:pb-12 bg-coolGray-50" style="background-image: url('/images/elements/pattern-light-big.svg'); background-repeat: no-repeat; background-position: center top;">
+				<div class="container px-4 mx-auto">
+					<div class="flex flex-wrap items-center mb-8">
+						<div class="w-full md:w-3/4 mb-8 md:mb-0">
+							<TagBadge name="Kuratierte Filme für Softwareentwickler:innen" />
+							<h1 class="mb-4 text-4xl md:text-5xl leading-tight text-darkCoolGray-900 font-bold tracking-tight">Filme für Softwareentwickler:innen</h1>
+							<p class="text-lg md:text-xl text-coolGray-500 font-medium">
+								Ein ordentlicher Kiosk verfügt natürlich über ein ausgewogenes Angebot. Neben Podcasts, Meetups und <a href="/spiele-fuer-softwareentwickler/" class="text-yellow-500">Spielen für Softwareentwickler:innen</a> gibt es nun auch eine <span class="font-bold">kuratierte Liste von
+								<span id="number-movies">{awesomeSoftwareEngineeringMovies.length}</span> Filmen und Dokumentationen für Softwareentwickler:innen</span> – Geschichten zu Programmiersprachen, Frameworks, Open Source und Tech-Kultur.
+							</p>
+						</div>
+						<div class="w-full md:w-1/4">
+							<div>
+								<a class="flex items-center justify-center py-2 px-4 ml-auto text-sm leading-5 text-yellow-50 font-medium bg-yellow-500 hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 md:max-w-max rounded-md" href="https://github.com/EngineeringKiosk/awesome-software-engineering-movies">
+									Die Filme Liste auf GitHub <img class="ml-2 w-8" src="/images/brands/github-black.svg" alt="awesome-software-engineering-movies auf GitHub" title="awesome-software-engineering-movies auf GitHub" />
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{awesomeSoftwareEngineeringMovies.map((movie) => <SoftwareEngineeringMoviePreview movie={movie} />)}
+
+			<section class="py-24 bg-coolGray-50" style="background-image: url('/images/elements/pattern-light-big.svg'); background-position: center;">
+				<div class="container px-4 mx-auto">
+					<div class="mb-16 text-center">
+						<h3 class="mb-4 text-3xl md:text-5xl leading-tight text-coolGray-900 font-bold tracking-tight">Dein Lieblingsfilm fehlt?</h3>
+						<a
+							class="flex items-center justify-center py-2 px-4 m-auto text-sm leading-5 text-yellow-50 font-medium bg-yellow-500 hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 md:max-w-max rounded-md"
+							href="https://github.com/EngineeringKiosk/awesome-software-engineering-movies/blob/main/CONTRIBUTING.md"
+						>
+							Sende uns ein Pull-Request auf GitHub <img class="ml-2 w-8" src="/images/brands/github-black.svg" alt="awesome-software-engineering-movies auf GitHub" title="awesome-software-engineering-movies auf GitHub" />
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<Footer />
+		</div>
+	</body>
+</html>

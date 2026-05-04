@@ -133,6 +133,54 @@ export function buildPodcastDirectoryJsonLd(podcasts, canonicalURL, siteURL) {
 }
 
 /**
+ * Builds JSON-LD structured data for the software engineering movies directory page.
+ *
+ * @param {object[]} movies - Array of movie collection entries
+ * @param {URL|string} canonicalURL - Canonical URL of the directory page
+ * @param {URL|string} siteURL - Base site URL
+ * @returns {object} JSON-LD object
+ */
+export function buildMoviesDirectoryJsonLd(movies, canonicalURL, siteURL) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'CollectionPage',
+		name: 'Filme für Softwareentwickler:innen',
+		description: 'Eine handverlesene Liste der besten Filme und Dokumentationen für Softwareentwickler:innen, Tech-Leads und Nerds.',
+		url: canonicalURL.toString(),
+		inLanguage: 'de',
+		mainEntity: {
+			'@type': 'ItemList',
+			numberOfItems: movies.length,
+			itemListElement: movies.map((movie, index) => ({
+				'@type': 'ListItem',
+				position: index + 1,
+				item: {
+					'@type': 'VideoObject',
+					name: movie.data.name,
+					description: movie.data.description,
+					contentUrl: movie.data.link,
+					embedUrl: `https://www.youtube.com/embed/${movie.data.videoID}`,
+					thumbnailUrl: new URL(movie.data.image.src, siteURL).toString(),
+					duration: movie.data.duration,
+					uploadDate: movie.data.publishedAt,
+					inLanguage: movie.data.language,
+					keywords: movie.data.tags,
+					interactionStatistic: {
+						'@type': 'InteractionCounter',
+						interactionType: { '@type': 'WatchAction' },
+						userInteractionCount: movie.data.viewCount,
+					},
+					publisher: {
+						'@type': 'Organization',
+						name: movie.data.channel.title,
+					},
+				},
+			})),
+		},
+	};
+}
+
+/**
  * Builds JSON-LD structured data for the software engineering games directory page.
  *
  * @param {object[]} games - Array of game collection entries
