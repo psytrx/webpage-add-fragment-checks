@@ -14,7 +14,8 @@
     "publishedAt": "2022-01-28T17:00:12Z",
     "ratings": {
         "youtube": {
-            "likeCount": 5948
+            "likeCount": 5948,
+            "refreshedAt": "2026-05-04T19:27:21Z"
         }
     },
     "slug": "kubernetes-the-documentary-part-2",
@@ -34,6 +35,6 @@
     "title": "Kubernetes: The Documentary [PART 2]",
     "videoID": "318elIq37PE",
     "views": {
-        "youtube": 225257
+        "youtube": 225260
     }
 }

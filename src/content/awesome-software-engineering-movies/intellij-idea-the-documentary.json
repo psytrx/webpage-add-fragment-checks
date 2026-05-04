@@ -14,7 +14,8 @@
     "publishedAt": "2026-03-05T18:00:07Z",
     "ratings": {
         "youtube": {
-            "likeCount": 1512
+            "likeCount": 1512,
+            "refreshedAt": "2026-05-04T19:27:21Z"
         }
     },
     "slug": "intellij-idea-the-documentary",
@@ -30,6 +31,6 @@
     "title": "IntelliJ IDEA: The Documentary | An origin story",
     "videoID": "Kourq_Lz03U",
     "views": {
-        "youtube": 42399
+        "youtube": 42400
     }
 }

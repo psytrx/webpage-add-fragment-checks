@@ -14,7 +14,8 @@
     "publishedAt": "2025-08-30T23:09:00Z",
     "ratings": {
         "youtube": {
-            "likeCount": 15202
+            "likeCount": 15203,
+            "refreshedAt": "2026-05-04T19:27:21Z"
         }
     },
     "slug": "internet-relay-chat-irc",
@@ -30,6 +31,6 @@
     "title": "Internet Relay Chat.",
     "videoID": "6UbKenFipjo",
     "views": {
-        "youtube": 256346
+        "youtube": 256362
     }
 }

@@ -14,7 +14,8 @@
     "publishedAt": "2025-08-28T17:00:06Z",
     "ratings": {
         "youtube": {
-            "likeCount": 33457
+            "likeCount": 33458,
+            "refreshedAt": "2026-05-04T19:27:21Z"
         }
     },
     "slug": "python-the-documentary",
@@ -30,6 +31,6 @@
     "title": "The Story of Python and how it took over the world | Python: The Documentary",
     "videoID": "GfH4QL4VqJ0",
     "views": {
-        "youtube": 1078966
+        "youtube": 1079019
     }
 }

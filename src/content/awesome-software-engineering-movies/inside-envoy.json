@@ -14,7 +14,8 @@
     "publishedAt": "2023-04-20T16:10:01Z",
     "ratings": {
         "youtube": {
-            "likeCount": 572
+            "likeCount": 572,
+            "refreshedAt": "2026-05-04T19:27:21Z"
         }
     },
     "slug": "inside-envoy-the-proxy-for-the-future",

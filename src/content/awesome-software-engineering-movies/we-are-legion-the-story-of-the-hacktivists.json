@@ -6,6 +6,7 @@
     "description": "This documentary takes a deep dive into the world of Anonymous, a loosely organized international group of hacktivists. It offers a fascinating look at the power and influence of hacker culture in the digital age.",
     "duration": "PT1H36M41S",
     "image": "./we-are-legion-the-story-of-the-hacktivists.jpg",
+    "imdbID": "tt2177843",
     "language": [
         "en"
     ],
@@ -13,8 +14,14 @@
     "name": "We Are Legion: The Story of the Hacktivists",
     "publishedAt": "2017-10-30T16:58:58Z",
     "ratings": {
+        "imdb": {
+            "averageRating": 7.2,
+            "numVotes": 10528,
+            "refreshedAt": "2026-05-04T19:09:37Z"
+        },
         "youtube": {
-            "likeCount": 1048
+            "likeCount": 1048,
+            "refreshedAt": "2026-05-04T19:27:21Z"
         }
     },
     "slug": "we-are-legion-the-story-of-the-hacktivists",
@@ -30,6 +37,6 @@
     "title": "We Are Legion The Story of the Hacktivists Full HD Documentary",
     "videoID": "4D1WJsdu6W8",
     "views": {
-        "youtube": 65072
+        "youtube": 65075
     }
 }

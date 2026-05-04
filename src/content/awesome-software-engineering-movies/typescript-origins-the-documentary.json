@@ -14,7 +14,8 @@
     "publishedAt": "2023-09-21T15:59:12Z",
     "ratings": {
         "youtube": {
-            "likeCount": 9556
+            "likeCount": 9556,
+            "refreshedAt": "2026-05-04T19:27:21Z"
         }
     },
     "slug": "typescript-origins-the-documentary",
@@ -30,6 +31,6 @@
     "title": "TypeScript Origins: The Documentary",
     "videoID": "U6s2pdxebSo",
     "views": {
-        "youtube": 348028
+        "youtube": 348027
     }
 }
