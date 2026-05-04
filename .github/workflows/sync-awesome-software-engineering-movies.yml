@@ -1,0 +1,61 @@
+name: Sync awesome-software-engineering-movies
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [movie-list-update]
+
+jobs:
+  sync-awesome-software-engineering-movies:
+    name: Sync awesome-software-engineering-movies from external repository
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: website-admin
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6
+        with:
+          go-version: "1.26"
+
+      - name: Build
+        run: make build
+
+      # Updates the Awesome Software Engineering Movies data
+      # from https://github.com/EngineeringKiosk/awesome-software-engineering-movies
+      - name: website-admin sync awesome-software-engineering-movies
+        run: |
+          ./website-admin sync awesome-software-engineering-movies
+
+      # Commit results back to repository
+      - name: Commit changes
+        id: auto-commit
+        uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 # v7.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          commit_message: "chore: Update the latest data from awesome-software-engineering-movies"
+          branch: main
+          commit_user_name: "GitHub Actions Bot"
+          commit_user_email: "actions@github.com"
+          commit_author: "GitHub Actions Bot <actions@github.com>"
+          skip_push: true
+
+      - name: Push changes with retry
+        if: steps.auto-commit.outputs.changes_detected == 'true'
+        working-directory: ${{ github.workspace }}
+        run: |
+          max_retries=3
+          for attempt in $(seq 1 $max_retries); do
+            echo "Push attempt $attempt of $max_retries"
+            if git push origin main; then
+              echo "Push succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "Push failed, pulling with rebase and retrying..."
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "Push failed after $max_retries attempts"
+          exit 1
