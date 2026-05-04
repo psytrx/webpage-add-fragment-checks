@@ -11,11 +11,12 @@
     ],
     "link": "https://www.youtube.com/watch?v=OrxmtDw4pVI",
     "name": "Vue.js: The Documentary",
+    "platform": "youtube",
     "publishedAt": "2020-02-24T18:20:37Z",
     "ratings": {
         "youtube": {
             "likeCount": 52870,
-            "refreshedAt": "2026-05-04T19:27:21Z"
+            "refreshedAt": "2026-05-04T19:47:32Z"
         }
     },
     "slug": "vue-js-the-documentary",
@@ -38,6 +39,6 @@
     "title": "Vue.js: The Documentary",
     "videoID": "OrxmtDw4pVI",
     "views": {
-        "youtube": 1638044
+        "youtube": 1638049
     }
 }

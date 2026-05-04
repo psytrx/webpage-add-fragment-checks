@@ -11,11 +11,12 @@
     ],
     "link": "https://www.youtube.com/watch?v=318elIq37PE",
     "name": "Kubernetes: The Documentary [PART 2]",
+    "platform": "youtube",
     "publishedAt": "2022-01-28T17:00:12Z",
     "ratings": {
         "youtube": {
             "likeCount": 5948,
-            "refreshedAt": "2026-05-04T19:27:21Z"
+            "refreshedAt": "2026-05-04T19:47:32Z"
         }
     },
     "slug": "kubernetes-the-documentary-part-2",
@@ -35,6 +36,6 @@
     "title": "Kubernetes: The Documentary [PART 2]",
     "videoID": "318elIq37PE",
     "views": {
-        "youtube": 225260
+        "youtube": 225257
     }
 }

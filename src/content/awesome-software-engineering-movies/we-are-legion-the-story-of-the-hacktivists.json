@@ -12,6 +12,7 @@
     ],
     "link": "https://www.youtube.com/watch?v=4D1WJsdu6W8",
     "name": "We Are Legion: The Story of the Hacktivists",
+    "platform": "youtube",
     "publishedAt": "2017-10-30T16:58:58Z",
     "ratings": {
         "imdb": {
@@ -21,7 +22,7 @@
         },
         "youtube": {
             "likeCount": 1048,
-            "refreshedAt": "2026-05-04T19:27:21Z"
+            "refreshedAt": "2026-05-04T19:47:32Z"
         }
     },
     "slug": "we-are-legion-the-story-of-the-hacktivists",
@@ -37,6 +38,6 @@
     "title": "We Are Legion The Story of the Hacktivists Full HD Documentary",
     "videoID": "4D1WJsdu6W8",
     "views": {
-        "youtube": 65075
+        "youtube": 65072
     }
 }

@@ -11,11 +11,12 @@
     ],
     "link": "https://www.youtube.com/watch?v=bmWQqAKLgT4",
     "name": "VITE: The Documentary",
+    "platform": "youtube",
     "publishedAt": "2025-10-09T17:00:06Z",
     "ratings": {
         "youtube": {
             "likeCount": 5905,
-            "refreshedAt": "2026-05-04T19:27:21Z"
+            "refreshedAt": "2026-05-04T19:47:32Z"
         }
     },
     "slug": "vite-the-documentary",

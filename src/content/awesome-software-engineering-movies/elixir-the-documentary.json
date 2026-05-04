@@ -11,11 +11,12 @@
     ],
     "link": "https://www.youtube.com/watch?v=lxYFOM3UJzo",
     "name": "Elixir: The Documentary",
+    "platform": "youtube",
     "publishedAt": "2018-07-13T13:44:42Z",
     "ratings": {
         "youtube": {
             "likeCount": 8058,
-            "refreshedAt": "2026-05-04T19:27:21Z"
+            "refreshedAt": "2026-05-04T19:47:32Z"
         }
     },
     "slug": "elixir-the-documentary",
@@ -32,6 +33,6 @@
     "title": "Elixir: The Documentary",
     "videoID": "lxYFOM3UJzo",
     "views": {
-        "youtube": 261679
+        "youtube": 261674
     }
 }
