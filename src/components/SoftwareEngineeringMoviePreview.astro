@@ -2,10 +2,37 @@
 import type { CollectionEntry } from 'astro:content';
 import { Image } from "astro:assets";
 import { URLify } from '../scripts/urlify.js';
+import { formatISO8601Duration } from '../scripts/duration.js';
 import TagBadge from '../components/TagBadge.astro';
 
 export interface Props {
 	movie: CollectionEntry<'awesome-software-engineering-movies'>;
+}
+
+const DESCRIPTION_MAX_LEN = 600;
+
+// Truncate description at DESCRIPTION_MAX_LEN characters without splitting a word.
+// If the cut-off lands inside a word, advance to the next word boundary (space)
+// or sentence terminator (. ! ?), whichever comes first, then append " ...".
+function truncateDescription(text) {
+	if (!text || text.length <= DESCRIPTION_MAX_LEN) return text;
+
+	// If the cut-off is already at a boundary, just trim and tack on the ellipsis.
+	const charAt = text[DESCRIPTION_MAX_LEN];
+	if (/[\s.!?]/.test(charAt)) {
+		return text.slice(0, DESCRIPTION_MAX_LEN).trimEnd() + ' ...';
+	}
+
+	// Otherwise scan forward for the next boundary. The first hit wins.
+	const tailMatch = text.slice(DESCRIPTION_MAX_LEN).match(/[\s.!?]/);
+	if (!tailMatch) {
+		// No further boundary — fall back to a hard cut.
+		return text.slice(0, DESCRIPTION_MAX_LEN).trimEnd() + ' ...';
+	}
+
+	const boundary = tailMatch[0];
+	const cutEnd = DESCRIPTION_MAX_LEN + tailMatch.index + (/[.!?]/.test(boundary) ? 1 : 0);
+	return text.slice(0, cutEnd).trimEnd() + ' ...';
 }
 
 const { movie } = Astro.props;
@@ -18,23 +45,9 @@ if (movie.data.tags) {
 // Generate id based on the slug (slug is upstream-controlled and stable)
 const nameId = URLify(movie.data.slug);
 
-// Format ISO-8601 duration "PT1H2M3S" -> "1:02:03" (or "12:49" for "PT12M49S").
-// Returns the original string if it cannot be parsed.
-function formatISO8601Duration(iso) {
-	if (!iso || typeof iso !== 'string') return iso;
-	const match = iso.match(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/);
-	if (!match) return iso;
-	const hours = parseInt(match[1] || '0', 10);
-	const minutes = parseInt(match[2] || '0', 10);
-	const seconds = parseInt(match[3] || '0', 10);
-	const pad = (n) => String(n).padStart(2, '0');
-	if (hours > 0) return `${hours}:${pad(minutes)}:${pad(seconds)}`;
-	return `${minutes}:${pad(seconds)}`;
-}
-
 const duration = formatISO8601Duration(movie.data.duration);
 const publishedDate = new Date(movie.data.publishedAt).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' });
-const viewCount = new Intl.NumberFormat('de-DE').format(movie.data.viewCount);
+const description = truncateDescription(movie.data.description);
 ---
 
 <section
@@ -57,13 +70,11 @@ const viewCount = new Intl.NumberFormat('de-DE').format(movie.data.viewCount);
 					</a>
 				</h2>
 				<p class="mb-6 text-lg md:text-xl text-coolGray-500 font-medium">
-					{movie.data.description}
+					{description}
 				</p>
 				<ul class="mb-4 text-lg md:text-xl text-coolGray-500 font-medium">
-					<li class="pb-2">Kanal: <span class="font-semibold">{movie.data.channel.title}</span></li>
 					<li class="pb-2">Dauer: {duration}</li>
 					<li class="pb-2">Veröffentlicht: {publishedDate}</li>
-					<li class="pb-2">Aufrufe: {viewCount}</li>
 					<li class="pb-2 space-x-2">Sprache:
 						{movie.data.language.map((lang) => (
 							<span class="inline-block px-2 py-0.5 text-sm bg-coolGray-100 rounded">{lang.toUpperCase()}</span>
