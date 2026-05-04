@@ -20,6 +20,7 @@ var (
 
 	// Sync
 	flagSyncAwesomeGamesStoragePath       string
+	flagSyncAwesomeMoviesStoragePath      string
 	flagSyncGermanTechPodcastsStoragePath string
 	flagSyncGermanTechPodcastsOPMLPath    string
 

@@ -110,7 +110,7 @@ func RunSyncAwesomeSoftwareEngineeringGamesCmd(cmd *cobra.Command, args []string
 
 	// Copy and transform JSON files
 	jsonSourceDir := filepath.Join(tmpDir, awesomeGamesJSONPathInRepo)
-	if err := syncJSONFiles(logger, jsonSourceDir, storagePath); err != nil {
+	if err := syncJSONFiles(logger, jsonSourceDir, storagePath, transformGameJSON); err != nil {
 		return err
 	}
 
@@ -146,8 +146,15 @@ func cloneRepository(logger zerolog.Logger, repoURL, destDir string) error {
 	return nil
 }
 
-// syncJSONFiles copies and transforms JSON files from source to destination
-func syncJSONFiles(logger zerolog.Logger, sourceDir, destDir string) error {
+// jsonTransformer mutates a parsed JSON document in place before it is written
+// back to disk. Each sync command provides its own transformer so the shared
+// syncJSONFiles helper can stay generic.
+type jsonTransformer func(content map[string]interface{})
+
+// syncJSONFiles copies and transforms JSON files from source to destination.
+// The transform function is applied to each parsed JSON document; pass nil for
+// a verbatim copy.
+func syncJSONFiles(logger zerolog.Logger, sourceDir, destDir string, transform jsonTransformer) error {
 	entries, err := os.ReadDir(sourceDir)
 	if err != nil {
 		return fmt.Errorf("failed to read JSON directory: %w", err)
@@ -179,7 +186,7 @@ func syncJSONFiles(logger zerolog.Logger, sourceDir, destDir string) error {
 			Str("dst", dstPath).
 			Msg("Processing JSON file")
 
-		if err := copyAndTransformJSONFile(srcPath, dstPath); err != nil {
+		if err := copyAndTransformJSONFile(srcPath, dstPath, transform); err != nil {
 			logger.Warn().
 				Err(err).
 				Str("file", entry.Name()).
@@ -195,8 +202,8 @@ func syncJSONFiles(logger zerolog.Logger, sourceDir, destDir string) error {
 	return nil
 }
 
-// copyAndTransformJSONFile copies a JSON file and applies transformations
-func copyAndTransformJSONFile(srcPath, dstPath string) error {
+// copyAndTransformJSONFile copies a JSON file and applies the supplied transform.
+func copyAndTransformJSONFile(srcPath, dstPath string, transform jsonTransformer) error {
 	// Read source file
 	data, err := os.ReadFile(srcPath)
 	if err != nil {
@@ -209,16 +216,8 @@ func copyAndTransformJSONFile(srcPath, dstPath string) error {
 		return fmt.Errorf("failed to parse JSON: %w", err)
 	}
 
-	// Transform image path to relative
-	if imagePath, ok := content["image"].(string); ok {
-		content["image"] = "./" + filepath.Base(imagePath)
-	}
-
-	// Normalize genres in german_content
-	if germanContent, ok := content["german_content"].(map[string]interface{}); ok {
-		if genres, ok := germanContent["genres"].([]interface{}); ok {
-			germanContent["genres"] = normalizeGenres(genres)
-		}
+	if transform != nil {
+		transform(content)
 	}
 
 	// Write transformed JSON
@@ -232,6 +231,27 @@ func copyAndTransformJSONFile(srcPath, dstPath string) error {
 	}
 
 	return nil
+}
+
+// rewriteImageToRelative rewrites the top-level "image" field to a path that is
+// relative to the destination directory (e.g. "images/foo.jpg" -> "./foo.jpg").
+// Astro's content collection loader resolves images relative to the JSON file.
+func rewriteImageToRelative(content map[string]interface{}) {
+	if imagePath, ok := content["image"].(string); ok {
+		content["image"] = "./" + filepath.Base(imagePath)
+	}
+}
+
+// transformGameJSON applies game-specific transformations: image rewrite plus
+// genre name normalization for the German content.
+func transformGameJSON(content map[string]interface{}) {
+	rewriteImageToRelative(content)
+
+	if germanContent, ok := content["german_content"].(map[string]interface{}); ok {
+		if genres, ok := germanContent["genres"].([]interface{}); ok {
+			germanContent["genres"] = normalizeGenres(genres)
+		}
+	}
 }
 
 // normalizeGenres normalizes genre names to avoid duplicates
