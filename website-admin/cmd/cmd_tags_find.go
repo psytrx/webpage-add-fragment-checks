@@ -15,9 +15,10 @@ import (
 )
 
 const (
-	ModeWebsiteContent                  = "website-content"
-	ModeGermanTechPodcasts              = "german-tech-podcasts"
-	ModeAwesomeSoftwareEngineeringGames = "awesome-software-engineering-games"
+	ModeWebsiteContent                   = "website-content"
+	ModeGermanTechPodcasts               = "german-tech-podcasts"
+	ModeAwesomeSoftwareEngineeringGames  = "awesome-software-engineering-games"
+	ModeAwesomeSoftwareEngineeringMovies = "awesome-software-engineering-movies"
 )
 
 // TagDescription represents a tag with its SEO descriptions
@@ -48,6 +49,9 @@ Available modes:
   awesome-software-engineering-games     Scans software engineering games for genres
                                          Uses: src/data/awesome-software-engineering-games-genres.json
 
+  awesome-software-engineering-movies    Scans software engineering movies for tags
+                                         Uses: src/data/awesome-software-engineering-movies-tags.json
+
 Behavior:
   - Without --write-file: Lists missing tags and exits with code 1 if any are found.
     This makes it ideal for CI/CD pipelines to catch missing descriptions.
@@ -71,7 +75,7 @@ keys (e.g., "german_content.genres" for games).`,
   # Enable debug logging to see which files are being processed
   website-admin tags find website-content --debug`,
 	Args:              cobra.ExactArgs(1),
-	ValidArgs:         []string{ModeWebsiteContent, ModeGermanTechPodcasts, ModeAwesomeSoftwareEngineeringGames},
+	ValidArgs:         []string{ModeWebsiteContent, ModeGermanTechPodcasts, ModeAwesomeSoftwareEngineeringGames, ModeAwesomeSoftwareEngineeringMovies},
 	RunE:              RunTagsFindCmd,
 	DisableAutoGenTag: true,
 }
@@ -113,6 +117,11 @@ func RunTagsFindCmd(cmd *cobra.Command, args []string) error {
 		tagFilePath = "src/data/awesome-software-engineering-games-genres.json"
 		contentPaths = []string{"src/content/awesome-software-engineering-games"}
 		jsonKey = "german_content.genres"
+
+	case ModeAwesomeSoftwareEngineeringMovies:
+		tagFilePath = "src/data/awesome-software-engineering-movies-tags.json"
+		contentPaths = []string{"src/content/awesome-software-engineering-movies"}
+		jsonKey = "tags"
 
 	default:
 		return fmt.Errorf("invalid mode: %s", mode)

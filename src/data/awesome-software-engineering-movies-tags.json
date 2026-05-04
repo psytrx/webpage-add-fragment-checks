@@ -1,0 +1,137 @@
+{
+    "API": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Backend": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Build Tools": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Chat": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Cloud Native": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 4
+    },
+    "Developer Tools": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Frontend": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 6
+    },
+    "Functional Programming": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
+    },
+    "Google": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "History": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 18
+    },
+    "IDE": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "JavaScript": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 8
+    },
+    "JetBrains": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Kernel": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Linux": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Meta": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Microsoft": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Monitoring": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Networking": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 3
+    },
+    "Observability": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Open Source": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 19
+    },
+    "Orchestration": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
+    },
+    "PHP": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Programming Languages": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 4
+    },
+    "Ruby": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Service Mesh": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Web Frameworks": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
+    }
+}
