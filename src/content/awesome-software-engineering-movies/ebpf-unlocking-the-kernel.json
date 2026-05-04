@@ -16,7 +16,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 4777,
-            "refreshedAt": "2026-05-04T20:11:06Z"
+            "refreshedAt": "2026-05-04T21:03:59Z"
         }
     },
     "slug": "ebpf-unlocking-the-kernel",
@@ -32,6 +32,6 @@
     "title": "eBPF: Unlocking the Kernel [OFFICIAL DOCUMENTARY]",
     "videoID": "Wb_vD3XZYOA",
     "views": {
-        "youtube": 165138
+        "youtube": 165140
     }
 }
