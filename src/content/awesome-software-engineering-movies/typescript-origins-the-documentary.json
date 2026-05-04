@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=U6s2pdxebSo",
     "name": "TypeScript Origins: The Documentary",
     "publishedAt": "2023-09-21T15:59:12Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 9556
+        }
+    },
     "slug": "typescript-origins-the-documentary",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "TypeScript Origins: The Documentary",
     "videoID": "U6s2pdxebSo",
-    "viewCount": 348013
+    "views": {
+        "youtube": 348028
+    }
 }

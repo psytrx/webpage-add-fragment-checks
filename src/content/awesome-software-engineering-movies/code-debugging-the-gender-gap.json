@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=rQKRw6tWsb8",
     "name": "CODE: Debugging the Gender Gap",
     "publishedAt": "2023-12-14T22:30:04Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 50
+        }
+    },
     "slug": "code-debugging-the-gender-gap",
     "subtitles": [
         "en"
@@ -23,5 +28,7 @@
     ],
     "title": "CODE: Debugging the Gender Gap (FULL DOCUMENTARY) Girls, STEM, Women in Tech",
     "videoID": "rQKRw6tWsb8",
-    "viewCount": 5346
+    "views": {
+        "youtube": 5351
+    }
 }

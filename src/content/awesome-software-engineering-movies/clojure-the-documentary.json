@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=Y24vK_QDLFg",
     "name": "Clojure: The Documentary",
     "publishedAt": "2026-04-16T18:00:22Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 3589
+        }
+    },
     "slug": "clojure-the-documentary",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "How one programmer's pet project changed how we think about software",
     "videoID": "Y24vK_QDLFg",
-    "viewCount": 185474
+    "views": {
+        "youtube": 185655
+    }
 }

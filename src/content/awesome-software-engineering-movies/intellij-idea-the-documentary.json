@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=Kourq_Lz03U",
     "name": "IntelliJ IDEA: The Documentary",
     "publishedAt": "2026-03-05T18:00:07Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 1512
+        }
+    },
     "slug": "intellij-idea-the-documentary",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "IntelliJ IDEA: The Documentary | An origin story",
     "videoID": "Kourq_Lz03U",
-    "viewCount": 42368
+    "views": {
+        "youtube": 42399
+    }
 }

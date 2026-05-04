@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=bmWQqAKLgT4",
     "name": "VITE: The Documentary",
     "publishedAt": "2025-10-09T17:00:06Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 5905
+        }
+    },
     "slug": "vite-the-documentary",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "VITE: The Documentary",
     "videoID": "bmWQqAKLgT4",
-    "viewCount": 151845
+    "views": {
+        "youtube": 151856
+    }
 }

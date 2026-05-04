@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=BE77h7dmoQU",
     "name": "Kubernetes: The Documentary [PART 1]",
     "publishedAt": "2022-01-21T17:00:13Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 12674
+        }
+    },
     "slug": "kubernetes-the-documentary-part-1",
     "subtitles": [
         "ko",
@@ -29,5 +34,7 @@
     ],
     "title": "Kubernetes: The Documentary [PART 1]",
     "videoID": "BE77h7dmoQU",
-    "viewCount": 514032
+    "views": {
+        "youtube": 514037
+    }
 }

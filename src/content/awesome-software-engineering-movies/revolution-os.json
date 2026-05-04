@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=k0RYQVkQmWU",
     "name": "Revolution OS",
     "publishedAt": "2020-02-27T13:53:04Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 2191
+        }
+    },
     "slug": "revolution-os",
     "subtitles": [
         "sl",
@@ -42,5 +47,7 @@
     ],
     "title": "Revolution OS (documentary about GNU/Linux) (Multilingual) (HQ)",
     "videoID": "k0RYQVkQmWU",
-    "viewCount": 86729
+    "views": {
+        "youtube": 86741
+    }
 }

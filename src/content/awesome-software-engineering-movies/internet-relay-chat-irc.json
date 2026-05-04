@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=6UbKenFipjo",
     "name": "Internet Relay Chat (IRC)",
     "publishedAt": "2025-08-30T23:09:00Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 15202
+        }
+    },
     "slug": "internet-relay-chat-irc",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "Internet Relay Chat.",
     "videoID": "6UbKenFipjo",
-    "viewCount": 256338
+    "views": {
+        "youtube": 256346
+    }
 }

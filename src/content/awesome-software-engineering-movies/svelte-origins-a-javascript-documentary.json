@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=kMlkCYL9qo0",
     "name": "Svelte Origins: A JavaScript Documentary",
     "publishedAt": "2022-06-21T16:40:26Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 6992
+        }
+    },
     "slug": "svelte-origins-a-javascript-documentary",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "Svelte Origins: A JavaScript Documentary",
     "videoID": "kMlkCYL9qo0",
-    "viewCount": 211148
+    "views": {
+        "youtube": 211155
+    }
 }

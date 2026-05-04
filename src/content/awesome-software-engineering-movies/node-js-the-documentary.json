@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=LB8KwiiUGy0",
     "name": "Node.js: The Documentary",
     "publishedAt": "2024-03-21T18:00:07Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 23868
+        }
+    },
     "slug": "node-js-the-documentary",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "Node.js: The Documentary | An origin story",
     "videoID": "LB8KwiiUGy0",
-    "viewCount": 835044
+    "views": {
+        "youtube": 835057
+    }
 }

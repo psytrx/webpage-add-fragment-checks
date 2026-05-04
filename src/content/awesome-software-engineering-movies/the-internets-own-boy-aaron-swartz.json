@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=9vz06QO3UkQ",
     "name": "The Internet's Own Boy: The Story of Aaron Swartz",
     "publishedAt": "2014-07-01T22:17:49Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 36687
+        }
+    },
     "slug": "the-internets-own-boy-the-story-of-aaron-swartz",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "The Internet's Own Boy: The Story of Aaron Swartz | full movie (2014)",
     "videoID": "9vz06QO3UkQ",
-    "viewCount": 2445124
+    "views": {
+        "youtube": 2445162
+    }
 }

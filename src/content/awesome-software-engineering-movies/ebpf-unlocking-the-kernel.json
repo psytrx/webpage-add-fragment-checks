@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=Wb_vD3XZYOA",
     "name": "eBPF: Unlocking the Kernel",
     "publishedAt": "2023-11-09T02:55:45Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 4777
+        }
+    },
     "slug": "ebpf-unlocking-the-kernel",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "eBPF: Unlocking the Kernel [OFFICIAL DOCUMENTARY]",
     "videoID": "Wb_vD3XZYOA",
-    "viewCount": 165131
+    "views": {
+        "youtube": 165140
+    }
 }

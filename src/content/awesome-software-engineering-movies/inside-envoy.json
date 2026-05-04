@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=uaksVVHDhYU",
     "name": "Inside Envoy: The Proxy for the Future",
     "publishedAt": "2023-04-20T16:10:01Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 572
+        }
+    },
     "slug": "inside-envoy-the-proxy-for-the-future",
     "subtitles": [
         "en"
@@ -24,5 +29,7 @@
     ],
     "title": "Inside Envoy: The Proxy for the Future [OFFICIAL FILM]",
     "videoID": "uaksVVHDhYU",
-    "viewCount": 116974
+    "views": {
+        "youtube": 116976
+    }
 }

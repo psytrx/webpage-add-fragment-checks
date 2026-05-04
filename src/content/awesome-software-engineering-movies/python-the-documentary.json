@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=GfH4QL4VqJ0",
     "name": "Python: The Documentary",
     "publishedAt": "2025-08-28T17:00:06Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 33457
+        }
+    },
     "slug": "python-the-documentary",
     "subtitles": [
         "en",
@@ -24,5 +29,7 @@
     ],
     "title": "The Story of Python and how it took over the world | Python: The Documentary",
     "videoID": "GfH4QL4VqJ0",
-    "viewCount": 1078719
+    "views": {
+        "youtube": 1078966
+    }
 }

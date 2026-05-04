@@ -12,6 +12,11 @@
     "link": "https://www.youtube.com/watch?v=rT4fJNbfe14",
     "name": "Prometheus: The Documentary",
     "publishedAt": "2022-10-25T13:45:07Z",
+    "ratings": {
+        "youtube": {
+            "likeCount": 3547
+        }
+    },
     "slug": "prometheus-the-documentary",
     "subtitles": [
         "ru",
@@ -27,5 +32,7 @@
     ],
     "title": "Prometheus: The Documentary",
     "videoID": "rT4fJNbfe14",
-    "viewCount": 143720
+    "views": {
+        "youtube": 143725
+    }
 }
