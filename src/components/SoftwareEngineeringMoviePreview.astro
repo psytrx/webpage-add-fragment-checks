@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { Image } from "astro:assets";
 import { URLify } from '../scripts/urlify.js';
-import { formatISO8601Duration } from '../scripts/duration.js';
+import { humanizeISO8601Duration } from '../scripts/duration.js';
 import { truncateDescription } from '../scripts/text.js';
 import TagBadge from '../components/TagBadge.astro';
 
@@ -20,7 +20,7 @@ if (movie.data.tags) {
 // Generate id based on the slug (slug is upstream-controlled and stable)
 const nameId = URLify(movie.data.slug);
 
-const duration = formatISO8601Duration(movie.data.duration);
+const duration = humanizeISO8601Duration(movie.data.duration);
 const publishedDate = new Date(movie.data.publishedAt).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' });
 const description = truncateDescription(movie.data.description);
 ---
