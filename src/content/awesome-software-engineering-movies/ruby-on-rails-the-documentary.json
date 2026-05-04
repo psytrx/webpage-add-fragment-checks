@@ -13,6 +13,11 @@
     "name": "Ruby on Rails: The Documentary",
     "publishedAt": "2023-11-09T17:30:10Z",
     "slug": "ruby-on-rails-the-documentary",
+    "subtitles": [
+        "es",
+        "de",
+        "en"
+    ],
     "tags": [
         "Web Frameworks",
         "Ruby",
@@ -21,5 +26,5 @@
     ],
     "title": "Ruby on Rails: The Documentary",
     "videoID": "HDKUEXBF3B4",
-    "viewCount": 319671
+    "viewCount": 319672
 }

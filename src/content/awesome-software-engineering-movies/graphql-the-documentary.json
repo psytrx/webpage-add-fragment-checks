@@ -13,6 +13,14 @@
     "name": "GraphQL: The Documentary",
     "publishedAt": "2019-06-24T16:01:00Z",
     "slug": "graphql-the-documentary",
+    "subtitles": [
+        "es",
+        "zh",
+        "pt",
+        "vi",
+        "en",
+        "ja"
+    ],
     "tags": [
         "API",
         "Open Source",

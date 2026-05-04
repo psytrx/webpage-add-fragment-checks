@@ -13,6 +13,9 @@
     "name": "Internet Relay Chat (IRC)",
     "publishedAt": "2025-08-30T23:09:00Z",
     "slug": "internet-relay-chat-irc",
+    "subtitles": [
+        "en"
+    ],
     "tags": [
         "Networking",
         "Chat",

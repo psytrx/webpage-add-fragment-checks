@@ -13,6 +13,9 @@
     "name": "TypeScript Origins: The Documentary",
     "publishedAt": "2023-09-21T15:59:12Z",
     "slug": "typescript-origins-the-documentary",
+    "subtitles": [
+        "en"
+    ],
     "tags": [
         "Programming Languages",
         "JavaScript",
@@ -21,5 +24,5 @@
     ],
     "title": "TypeScript Origins: The Documentary",
     "videoID": "U6s2pdxebSo",
-    "viewCount": 348014
+    "viewCount": 348013
 }

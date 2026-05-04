@@ -13,6 +13,9 @@
     "name": "Node.js: The Documentary",
     "publishedAt": "2024-03-21T18:00:07Z",
     "slug": "node-js-the-documentary",
+    "subtitles": [
+        "en"
+    ],
     "tags": [
         "JavaScript",
         "Backend",

@@ -13,6 +13,9 @@
     "name": "eBPF: Unlocking the Kernel",
     "publishedAt": "2023-11-09T02:55:45Z",
     "slug": "ebpf-unlocking-the-kernel",
+    "subtitles": [
+        "en"
+    ],
     "tags": [
         "Linux",
         "Kernel",
@@ -21,5 +24,5 @@
     ],
     "title": "eBPF: Unlocking the Kernel [OFFICIAL DOCUMENTARY]",
     "videoID": "Wb_vD3XZYOA",
-    "viewCount": 165129
+    "viewCount": 165131
 }

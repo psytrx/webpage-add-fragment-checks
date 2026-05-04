@@ -13,6 +13,16 @@
     "name": "Vue.js: The Documentary",
     "publishedAt": "2020-02-24T18:20:37Z",
     "slug": "vue-js-the-documentary",
+    "subtitles": [
+        "en",
+        "pt",
+        "zh",
+        "vi",
+        "tr",
+        "fr",
+        "ru",
+        "es"
+    ],
     "tags": [
         "Frontend",
         "JavaScript",
@@ -21,5 +31,5 @@
     ],
     "title": "Vue.js: The Documentary",
     "videoID": "OrxmtDw4pVI",
-    "viewCount": 1638042
+    "viewCount": 1638037
 }

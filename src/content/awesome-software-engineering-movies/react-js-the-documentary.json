@@ -13,6 +13,11 @@
     "name": "React.js: The Documentary",
     "publishedAt": "2023-02-10T18:00:07Z",
     "slug": "react-js-the-documentary",
+    "subtitles": [
+        "en",
+        "es",
+        "pt"
+    ],
     "tags": [
         "Frontend",
         "JavaScript",
@@ -22,5 +27,5 @@
     ],
     "title": "How A Small Team of Developers Created React at Facebook | React.js: The Documentary",
     "videoID": "8pDqJVdNa44",
-    "viewCount": 1641133
+    "viewCount": 1641130
 }

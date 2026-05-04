@@ -13,6 +13,9 @@
     "name": "VITE: The Documentary",
     "publishedAt": "2025-10-09T17:00:06Z",
     "slug": "vite-the-documentary",
+    "subtitles": [
+        "en"
+    ],
     "tags": [
         "Frontend",
         "Build Tools",

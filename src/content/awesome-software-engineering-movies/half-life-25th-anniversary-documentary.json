@@ -13,6 +13,34 @@
     "name": "Half-Life: 25th Anniversary Documentary",
     "publishedAt": "2023-11-17T18:29:06Z",
     "slug": "half-life-25th-anniversary-documentary",
+    "subtitles": [
+        "en",
+        "sv",
+        "hu",
+        "de",
+        "es",
+        "pl",
+        "ru",
+        "da",
+        "tr",
+        "ja",
+        "pt",
+        "nl",
+        "id",
+        "uk",
+        "bg",
+        "ko",
+        "fr",
+        "fi",
+        "vi",
+        "zh",
+        "ro",
+        "it",
+        "cs",
+        "th",
+        "el",
+        "no"
+    ],
     "tags": [
         "Game Development",
         "Valve",
@@ -20,5 +48,5 @@
     ],
     "title": "Half-Life: 25th Anniversary Documentary",
     "videoID": "TbZ3HzvFEto",
-    "viewCount": 7853830
+    "viewCount": 7853843
 }

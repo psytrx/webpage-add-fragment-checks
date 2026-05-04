@@ -13,6 +13,11 @@
     "name": "Ember.js: The Documentary",
     "publishedAt": "2019-02-11T14:59:49Z",
     "slug": "ember-js-the-documentary",
+    "subtitles": [
+        "pt",
+        "vi",
+        "en"
+    ],
     "tags": [
         "Frontend",
         "JavaScript",

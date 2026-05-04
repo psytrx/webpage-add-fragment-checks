@@ -13,6 +13,10 @@
     "name": "Elixir: The Documentary",
     "publishedAt": "2018-07-13T13:44:42Z",
     "slug": "elixir-the-documentary",
+    "subtitles": [
+        "en",
+        "pt"
+    ],
     "tags": [
         "Programming Languages",
         "Functional Programming",
@@ -21,5 +25,5 @@
     ],
     "title": "Elixir: The Documentary",
     "videoID": "lxYFOM3UJzo",
-    "viewCount": 261669
+    "viewCount": 261672
 }

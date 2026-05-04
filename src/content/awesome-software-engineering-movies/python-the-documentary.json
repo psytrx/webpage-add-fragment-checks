@@ -13,6 +13,10 @@
     "name": "Python: The Documentary",
     "publishedAt": "2025-08-28T17:00:06Z",
     "slug": "python-the-documentary",
+    "subtitles": [
+        "en",
+        "ko"
+    ],
     "tags": [
         "Programming Languages",
         "Open Source",
@@ -20,5 +24,5 @@
     ],
     "title": "The Story of Python and how it took over the world | Python: The Documentary",
     "videoID": "GfH4QL4VqJ0",
-    "viewCount": 1078703
+    "viewCount": 1078719
 }
