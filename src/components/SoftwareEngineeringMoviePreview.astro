@@ -3,36 +3,11 @@ import type { CollectionEntry } from 'astro:content';
 import { Image } from "astro:assets";
 import { URLify } from '../scripts/urlify.js';
 import { formatISO8601Duration } from '../scripts/duration.js';
+import { truncateDescription } from '../scripts/text.js';
 import TagBadge from '../components/TagBadge.astro';
 
 export interface Props {
 	movie: CollectionEntry<'awesome-software-engineering-movies'>;
-}
-
-const DESCRIPTION_MAX_LEN = 600;
-
-// Truncate description at DESCRIPTION_MAX_LEN characters without splitting a word.
-// If the cut-off lands inside a word, advance to the next word boundary (space)
-// or sentence terminator (. ! ?), whichever comes first, then append " ...".
-function truncateDescription(text) {
-	if (!text || text.length <= DESCRIPTION_MAX_LEN) return text;
-
-	// If the cut-off is already at a boundary, just trim and tack on the ellipsis.
-	const charAt = text[DESCRIPTION_MAX_LEN];
-	if (/[\s.!?]/.test(charAt)) {
-		return text.slice(0, DESCRIPTION_MAX_LEN).trimEnd() + ' ...';
-	}
-
-	// Otherwise scan forward for the next boundary. The first hit wins.
-	const tailMatch = text.slice(DESCRIPTION_MAX_LEN).match(/[\s.!?]/);
-	if (!tailMatch) {
-		// No further boundary — fall back to a hard cut.
-		return text.slice(0, DESCRIPTION_MAX_LEN).trimEnd() + ' ...';
-	}
-
-	const boundary = tailMatch[0];
-	const cutEnd = DESCRIPTION_MAX_LEN + tailMatch.index + (/[.!?]/.test(boundary) ? 1 : 0);
-	return text.slice(0, cutEnd).trimEnd() + ' ...';
 }
 
 const { movie } = Astro.props;
