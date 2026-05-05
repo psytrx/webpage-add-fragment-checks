@@ -156,3 +156,28 @@ export function pathFromSitemapUrl(siteUrl, item) {
 		return item.url.replace(siteUrl.replace(/\/$/, ''), '');
 	}
 }
+
+const DIST_DIR = path.join(ROOT, 'dist');
+
+// Reads the rendered HTML for a sitemap URL and returns the og:image absolute
+// URL, or null if the page has none. Runs at sitemap-serialise time, after
+// Astro has already written every page to disk.
+export function extractOgImage(siteUrl, urlPath) {
+	const trimmed = urlPath.replace(/^\/+|\/+$/g, '');
+	const candidate = trimmed
+		? path.join(DIST_DIR, trimmed, 'index.html')
+		: path.join(DIST_DIR, 'index.html');
+	let html;
+	try {
+		html = fs.readFileSync(candidate, 'utf8');
+	} catch {
+		return null;
+	}
+	const m = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+	if (!m) return null;
+	try {
+		return new URL(m[1], siteUrl).toString();
+	} catch {
+		return null;
+	}
+}
