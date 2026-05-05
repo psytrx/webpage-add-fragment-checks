@@ -105,7 +105,16 @@ const integerFormatter = new Intl.NumberFormat('de-DE');
 					)}
 					{imdb && (
 						<li class="pb-2">
-							⭐ IMDb: {ratingFormatter.format(imdb.averageRating)} / 10 ({integerFormatter.format(imdb.numVotes)} Bewertungen)
+							⭐ {movie.data.imdbID ? (
+								<a
+									href={`https://www.imdb.com/title/${movie.data.imdbID}/`}
+									class="hover:underline hover:text-yellow-500"
+									title={`${title} auf IMDb`}
+									rel="noopener"
+								>IMDb</a>
+							) : (
+								<span>IMDb</span>
+							)}: {ratingFormatter.format(imdb.averageRating)} / 10 ({integerFormatter.format(imdb.numVotes)} Bewertungen)
 						</li>
 					)}
 				</ul>
