@@ -29,7 +29,7 @@ const tags = movie.data.tags ?? [];
 const nameId = URLify(movie.data.slug);
 
 const title = localizedTitle(movie);
-const description = truncateDescription(localizedDescription(movie));
+const description = truncateDescription(localizedDescription(movie), 400);
 const categoryLabel = labelFor(CATEGORY_LABELS, movie.data.category);
 const typeLabel = labelFor(TYPE_LABELS, movie.data.type);
 const categoryHref = `/filme-fuer-softwareentwickler/kategorie-${categorySlug(movie.data.category)}/`;
