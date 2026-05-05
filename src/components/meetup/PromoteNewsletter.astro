@@ -1,6 +1,4 @@
 ---
-import MainHead from '../MainHead.astro';
-
 import { formatTime, monthSuffixedDay, year} from '../../scripts/date.js';
 import { createMeetupHelpers } from '../../scripts/meetups.js';
 
@@ -31,6 +29,9 @@ const locationAddress = nextMeetup?.location.address;
 ---
 
 <html lang="de">
+	<head>
+		<meta name="robots" content="noindex, nofollow" />
+	</head>
 	<body class="antialiased bg-body text-body">
 
 		<h1 class="text-xl font-bold">Engineering Kiosk Meetup Announcement{nextMeetup ? ` - ${dateStringMonthDay}` : ''}</h1>

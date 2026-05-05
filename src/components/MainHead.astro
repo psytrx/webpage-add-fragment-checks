@@ -13,9 +13,14 @@ export interface Props {
 	profileFirstName?: string;
 	profileLastName?: string;
 	jsonLd?: Record<string, unknown>;
+	// When true, signal to search engines that this page should not be indexed
+	// or its outbound links followed. Use for short-lived campaign pages,
+	// duplicate content (e.g. /linktree/), or anything also kept out of the
+	// sitemap via astro.config.mjs `excludeFromSitemap`.
+	noindex?: boolean;
 }
 
-const { title, description, image, canonicalURL, ogType, ogImageAlt, ogImageWidth, ogImageHeight, profileFirstName, profileLastName, jsonLd } = Astro.props as Props;
+const { title, description, image, canonicalURL, ogType, ogImageAlt, ogImageWidth, ogImageHeight, profileFirstName, profileLastName, jsonLd, noindex } = Astro.props as Props;
 
 let ogTypeValue = 'website';
 if (ogType) {
@@ -29,7 +34,11 @@ if (ogType) {
 <title>{title}</title>
 <meta name="description" content={description} />
 
-<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+{noindex ? (
+	<meta name="robots" content="noindex, nofollow" />
+) : (
+	<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+)}
 
 <link rel="dns-prefetch" href="https://piwik.inlupus.at" />
 
