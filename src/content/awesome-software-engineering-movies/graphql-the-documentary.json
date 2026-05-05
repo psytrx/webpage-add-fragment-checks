@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=783ccP__No8",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=783ccP__No8"
+    },
     "name": "GraphQL: The Documentary",
-    "platform": "youtube",
     "publishedAt": "2019-06-24T16:01:00Z",
     "ratings": {
         "youtube": {
-            "likeCount": 15214,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 15215,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "graphql-the-documentary",
@@ -34,8 +35,7 @@
         "History"
     ],
     "title": "GraphQL: The Documentary",
-    "videoID": "783ccP__No8",
     "views": {
-        "youtube": 599163
+        "youtube": 599173
     }
 }

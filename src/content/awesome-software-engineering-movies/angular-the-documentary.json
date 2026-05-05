@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=cRC9DlH45lA",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=cRC9DlH45lA"
+    },
     "name": "Angular: The Documentary",
-    "platform": "youtube",
     "publishedAt": "2025-02-04T16:59:19Z",
     "ratings": {
         "youtube": {
             "likeCount": 3546,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "angular-the-documentary",
@@ -31,8 +32,7 @@
         "History"
     ],
     "title": "Angular: The Documentary | An origin story",
-    "videoID": "cRC9DlH45lA",
     "views": {
-        "youtube": 120757
+        "youtube": 120787
     }
 }

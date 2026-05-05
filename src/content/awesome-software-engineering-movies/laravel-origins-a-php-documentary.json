@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=127ng7botO4",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=127ng7botO4"
+    },
     "name": "Laravel Origins: A PHP Documentary",
-    "platform": "youtube",
     "publishedAt": "2022-03-02T18:17:09Z",
     "ratings": {
         "youtube": {
             "likeCount": 6778,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "laravel-origins-a-php-documentary",
@@ -30,8 +31,7 @@
         "History"
     ],
     "title": "Laravel Origins: A PHP Documentary",
-    "videoID": "127ng7botO4",
     "views": {
-        "youtube": 172224
+        "youtube": 172223
     }
 }

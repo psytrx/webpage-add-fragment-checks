@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=6UbKenFipjo",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=6UbKenFipjo"
+    },
     "name": "Internet Relay Chat (IRC)",
-    "platform": "youtube",
     "publishedAt": "2025-08-30T23:09:00Z",
     "ratings": {
         "youtube": {
-            "likeCount": 15204,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 15203,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "internet-relay-chat-irc",
@@ -30,8 +31,7 @@
         "History"
     ],
     "title": "Internet Relay Chat.",
-    "videoID": "6UbKenFipjo",
     "views": {
-        "youtube": 256365
+        "youtube": 256397
     }
 }

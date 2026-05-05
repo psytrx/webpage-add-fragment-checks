@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=OrxmtDw4pVI",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=OrxmtDw4pVI"
+    },
     "name": "Vue.js: The Documentary",
-    "platform": "youtube",
     "publishedAt": "2020-02-24T18:20:37Z",
     "ratings": {
         "youtube": {
-            "likeCount": 52870,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 52873,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "vue-js-the-documentary",
@@ -37,8 +38,7 @@
         "History"
     ],
     "title": "Vue.js: The Documentary",
-    "videoID": "OrxmtDw4pVI",
     "views": {
-        "youtube": 1638049
+        "youtube": 1638069
     }
 }

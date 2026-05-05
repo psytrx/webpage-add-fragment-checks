@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=TbZ3HzvFEto",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=TbZ3HzvFEto"
+    },
     "name": "Half-Life: 25th Anniversary Documentary",
-    "platform": "youtube",
     "publishedAt": "2023-11-17T18:29:06Z",
     "ratings": {
         "youtube": {
-            "likeCount": 280107,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 280111,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "half-life-25th-anniversary-documentary",
@@ -54,8 +55,7 @@
         "History"
     ],
     "title": "Half-Life: 25th Anniversary Documentary",
-    "videoID": "TbZ3HzvFEto",
     "views": {
-        "youtube": 7854281
+        "youtube": 7855699
     }
 }

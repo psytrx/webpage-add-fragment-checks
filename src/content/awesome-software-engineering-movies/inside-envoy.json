@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=uaksVVHDhYU",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=uaksVVHDhYU"
+    },
     "name": "Inside Envoy: The Proxy for the Future",
-    "platform": "youtube",
     "publishedAt": "2023-04-20T16:10:01Z",
     "ratings": {
         "youtube": {
             "likeCount": 572,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "inside-envoy-the-proxy-for-the-future",
@@ -30,7 +31,6 @@
         "Cloud Native"
     ],
     "title": "Inside Envoy: The Proxy for the Future [OFFICIAL FILM]",
-    "videoID": "uaksVVHDhYU",
     "views": {
         "youtube": 116976
     }

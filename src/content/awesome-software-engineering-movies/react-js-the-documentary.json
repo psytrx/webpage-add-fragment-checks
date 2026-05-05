@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=8pDqJVdNa44",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=8pDqJVdNa44"
+    },
     "name": "React.js: The Documentary",
-    "platform": "youtube",
     "publishedAt": "2023-02-10T18:00:07Z",
     "ratings": {
         "youtube": {
-            "likeCount": 40560,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 40561,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "react-js-the-documentary",
@@ -33,8 +34,7 @@
         "History"
     ],
     "title": "How A Small Team of Developers Created React at Facebook | React.js: The Documentary",
-    "videoID": "8pDqJVdNa44",
     "views": {
-        "youtube": 1641183
+        "youtube": 1641270
     }
 }

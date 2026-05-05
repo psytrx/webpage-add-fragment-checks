@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=HDKUEXBF3B4",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=HDKUEXBF3B4"
+    },
     "name": "Ruby on Rails: The Documentary",
-    "platform": "youtube",
     "publishedAt": "2023-11-09T17:30:10Z",
     "ratings": {
         "youtube": {
-            "likeCount": 9836,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 9835,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "ruby-on-rails-the-documentary",
@@ -32,8 +33,7 @@
         "History"
     ],
     "title": "Ruby on Rails: The Documentary",
-    "videoID": "HDKUEXBF3B4",
     "views": {
-        "youtube": 319692
+        "youtube": 319709
     }
 }

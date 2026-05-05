@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=Wb_vD3XZYOA",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=Wb_vD3XZYOA"
+    },
     "name": "eBPF: Unlocking the Kernel",
-    "platform": "youtube",
     "publishedAt": "2023-11-09T02:55:45Z",
     "ratings": {
         "youtube": {
             "likeCount": 4777,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "ebpf-unlocking-the-kernel",
@@ -30,8 +31,7 @@
         "Networking"
     ],
     "title": "eBPF: Unlocking the Kernel [OFFICIAL DOCUMENTARY]",
-    "videoID": "Wb_vD3XZYOA",
     "views": {
-        "youtube": 165140
+        "youtube": 165166
     }
 }

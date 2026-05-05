@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=Cvz-9ccflKQ",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=Cvz-9ccflKQ"
+    },
     "name": "Ember.js: The Documentary",
-    "platform": "youtube",
     "publishedAt": "2019-02-11T14:59:49Z",
     "ratings": {
         "youtube": {
             "likeCount": 2453,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "ember-js-the-documentary",
@@ -32,7 +33,6 @@
         "History"
     ],
     "title": "Ember.js: The Documentary",
-    "videoID": "Cvz-9ccflKQ",
     "views": {
         "youtube": 132568
     }

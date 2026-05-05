@@ -10,9 +10,10 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=k0RYQVkQmWU",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=k0RYQVkQmWU"
+    },
     "name": "Revolution OS",
-    "platform": "youtube",
     "publishedAt": "2020-02-27T13:53:04Z",
     "ratings": {
         "imdb": {
@@ -21,8 +22,8 @@
             "refreshedAt": "2026-05-04T19:09:37Z"
         },
         "youtube": {
-            "likeCount": 2191,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 2190,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "revolution-os",
@@ -54,8 +55,7 @@
         "History"
     ],
     "title": "Revolution OS (documentary about GNU/Linux) (Multilingual) (HQ)",
-    "videoID": "k0RYQVkQmWU",
     "views": {
-        "youtube": 86754
+        "youtube": 86783
     }
 }

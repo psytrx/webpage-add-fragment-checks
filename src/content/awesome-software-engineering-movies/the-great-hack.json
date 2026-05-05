@@ -5,13 +5,15 @@
     },
     "description": "Explore how a data company named Cambridge Analytica came to symbolize the dark side of social media in the wake of the 2016 US presidential election.",
     "duration": "",
-    "image": "./.",
+    "image": "./the-great-hack.jpg",
     "imdbID": "tt4736550",
     "language": [
         "en",
         "de"
     ],
-    "link": "https://www.netflix.com/title/80117542",
+    "links": {
+        "netflix": "https://www.netflix.com/title/80117542"
+    },
     "localized": {
         "de": {
             "description": "Das Datenanalyse-Unternehmen Cambridge Analytica wurde nach der US-Präsidentschaftswahl 2016 zum Symbol für die Schattenseite der sozialen Medien.",
@@ -19,7 +21,6 @@
         }
     },
     "name": "The Great Hack",
-    "platform": "netflix",
     "publishedAt": "",
     "ratings": {
         "imdb": {
@@ -37,5 +38,5 @@
         "Data Analytics"
     ],
     "title": "",
-    "videoID": ""
+    "youtubeTrailerForThumbnail": "https://www.youtube.com/watch?v=iX8GxLP1FHo"
 }

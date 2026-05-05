@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=GfH4QL4VqJ0",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=GfH4QL4VqJ0"
+    },
     "name": "Python: The Documentary",
-    "platform": "youtube",
     "publishedAt": "2025-08-28T17:00:06Z",
     "ratings": {
         "youtube": {
-            "likeCount": 33461,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 33469,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "python-the-documentary",
@@ -30,8 +31,7 @@
         "History"
     ],
     "title": "The Story of Python and how it took over the world | Python: The Documentary",
-    "videoID": "GfH4QL4VqJ0",
     "views": {
-        "youtube": 1079108
+        "youtube": 1079996
     }
 }

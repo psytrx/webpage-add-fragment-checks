@@ -9,14 +9,15 @@
     "language": [
         "en"
     ],
-    "link": "https://www.youtube.com/watch?v=Kourq_Lz03U",
+    "links": {
+        "youtube": "https://www.youtube.com/watch?v=Kourq_Lz03U"
+    },
     "name": "IntelliJ IDEA: The Documentary",
-    "platform": "youtube",
     "publishedAt": "2026-03-05T18:00:07Z",
     "ratings": {
         "youtube": {
-            "likeCount": 1512,
-            "refreshedAt": "2026-05-04T21:03:59Z"
+            "likeCount": 1514,
+            "refreshedAt": "2026-05-05T08:38:32Z"
         }
     },
     "slug": "intellij-idea-the-documentary",
@@ -30,8 +31,7 @@
         "History"
     ],
     "title": "IntelliJ IDEA: The Documentary | An origin story",
-    "videoID": "Kourq_Lz03U",
     "views": {
-        "youtube": 42400
+        "youtube": 42446
     }
 }
