@@ -17,7 +17,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 23868,
-            "refreshedAt": "2026-05-05T08:38:32Z"
+            "refreshedAt": "2026-05-05T08:48:21Z"
         }
     },
     "slug": "node-js-the-documentary",
@@ -32,6 +32,6 @@
     ],
     "title": "Node.js: The Documentary | An origin story",
     "views": {
-        "youtube": 835122
+        "youtube": 835138
     }
 }
