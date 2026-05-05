@@ -22,6 +22,11 @@ staticcheck: ## Runs static code analyzer staticcheck
 	go install honnef.co/go/tools/cmd/staticcheck@2026.1
 	staticcheck ./...
 
+.PHONY: lint
+lint: ## Runs golangci-lint
+	go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.12.1
+	golangci-lint run ./...
+
 .PHONY: vet
 vet: ## Runs go vet
 	go vet ./...
