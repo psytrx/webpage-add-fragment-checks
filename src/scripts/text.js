@@ -30,3 +30,49 @@ export function truncateDescription(text, maxLen = 600) {
 	const cutEnd = maxLen + tailMatch.index + (/[.!?]/.test(boundary) ? 1 : 0);
 	return text.slice(0, cutEnd).trimEnd() + ' ...';
 }
+
+/**
+ * Splits a string into a sequence of plain-text and URL segments so callers
+ * can render the URLs as anchors while keeping the surrounding text intact.
+ *
+ * Each returned segment is one of:
+ *   { kind: 'text', value: string }
+ *   { kind: 'link', value: string, href: string }
+ *
+ * Trailing punctuation (`.`, `,`, `;`, `:`, `!`, `?`, `)`, `]`) on a URL is
+ * pushed back into the next text segment — that way "...visit https://example.com."
+ * doesn't end up linking the period.
+ *
+ * @param {string} text
+ * @returns {Array<{kind:'text'|'link', value:string, href?:string}>}
+ */
+export function linkify(text) {
+	if (!text) return [{ kind: 'text', value: '' }];
+
+	const parts = [];
+	const re = /https?:\/\/[^\s<>"']+/g;
+	let last = 0;
+	let m;
+	while ((m = re.exec(text)) !== null) {
+		let url = m[0];
+		let trailing = '';
+		while (/[.,;:!?)\]]$/.test(url)) {
+			trailing = url.slice(-1) + trailing;
+			url = url.slice(0, -1);
+		}
+		// If stripping trailing punctuation left an empty URL, fall through and
+		// emit the original match as plain text — there was nothing to link.
+		if (!url) {
+			if (m.index > last) parts.push({ kind: 'text', value: text.slice(last, m.index) });
+			parts.push({ kind: 'text', value: m[0] });
+			last = m.index + m[0].length;
+			continue;
+		}
+		if (m.index > last) parts.push({ kind: 'text', value: text.slice(last, m.index) });
+		parts.push({ kind: 'link', value: url, href: url });
+		if (trailing) parts.push({ kind: 'text', value: trailing });
+		last = m.index + m[0].length;
+	}
+	if (last < text.length) parts.push({ kind: 'text', value: text.slice(last) });
+	return parts;
+}

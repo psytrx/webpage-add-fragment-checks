@@ -190,21 +190,60 @@ const awesomeSoftwareEngineeringMoviesCollection = defineCollection({
 		z.object({
 			name: z.string(),
 			slug: z.string(),
+			// `title` may be empty for entries that only have a localized title.
 			title: z.string(),
-			link: z.string().url(),
-			videoID: z.string(),
-			language: z.array(z.string()),
-			tags: z.array(z.string()),
 			description: z.string(),
-			// ISO-8601 duration, e.g. "PT12M49S"
+			// Open string values; the German display label lives in src/scripts/movie-labels.js.
+			category: z.string(),
+			type: z.string(),
+			tags: z.array(z.string()),
+			// `language`/`subtitles` are explicitly null for some upstream entries
+			// (no language metadata from the source), not just absent.
+			language: z.array(z.string()).nullable(),
+			subtitles: z.array(z.string()).nullable(),
+			// Open platform map: "youtube", "netflix", "bpb", ... -> URL.
+			links: z.record(z.string(), z.string().url()),
+			localized: z
+				.record(
+					z.string(),
+					z.object({
+						title: z.string().optional(),
+						description: z.string().optional(),
+					})
+				)
+				.optional(),
+			// ISO-8601 duration ("PT12M49S") or empty for non-YouTube entries.
 			duration: z.string(),
-			// ISO-8601 timestamp, e.g. "2018-07-13T13:44:42Z"
+			// ISO-8601 timestamp or empty for non-YouTube entries.
 			publishedAt: z.string(),
 			channel: z.object({
 				id: z.string(),
 				title: z.string(),
 			}),
-			viewCount: z.number(),
+			ratings: z
+				.object({
+					youtube: z
+						.object({
+							likeCount: z.number(),
+							refreshedAt: z.string(),
+						})
+						.optional(),
+					imdb: z
+						.object({
+							averageRating: z.number(),
+							numVotes: z.number(),
+							refreshedAt: z.string(),
+						})
+						.optional(),
+				})
+				.optional(),
+			views: z
+				.object({
+					youtube: z.number(),
+				})
+				.optional(),
+			imdbID: z.string().optional(),
+			youtubeTrailerForThumbnail: z.string().url().optional(),
 			image: image(),
 		}),
 });

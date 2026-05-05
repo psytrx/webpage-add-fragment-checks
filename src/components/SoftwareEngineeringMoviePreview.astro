@@ -3,7 +3,18 @@ import type { CollectionEntry } from 'astro:content';
 import { Image } from "astro:assets";
 import { URLify } from '../scripts/urlify.js';
 import { humanizeISO8601Duration } from '../scripts/duration.js';
-import { truncateDescription } from '../scripts/text.js';
+import { truncateDescription, linkify } from '../scripts/text.js';
+import {
+	CATEGORY_LABELS,
+	TYPE_LABELS,
+	LINK_PLATFORM_LABELS,
+	categorySlug,
+	typeSlug,
+	iconFor,
+	labelFor,
+	localizedTitle,
+	localizedDescription,
+} from '../scripts/movie-labels.js';
 import TagBadge from '../components/TagBadge.astro';
 
 export interface Props {
@@ -12,65 +23,132 @@ export interface Props {
 
 const { movie } = Astro.props;
 
-let tags = [];
-if (movie.data.tags) {
-	tags = movie.data.tags.map((element) => URLify(element));
-}
+const tags = movie.data.tags ?? [];
 
 // Generate id based on the slug (slug is upstream-controlled and stable)
 const nameId = URLify(movie.data.slug);
 
-const duration = humanizeISO8601Duration(movie.data.duration);
-const publishedDate = new Date(movie.data.publishedAt).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' });
-const description = truncateDescription(movie.data.description);
+const title = localizedTitle(movie);
+const descriptionParts = linkify(truncateDescription(localizedDescription(movie), 400));
+const categoryLabel = labelFor(CATEGORY_LABELS, movie.data.category);
+const typeLabel = labelFor(TYPE_LABELS, movie.data.type);
+const categoryHref = `/filme-fuer-softwareentwickler/kategorie-${categorySlug(movie.data.category)}/`;
+const typeHref = `/filme-fuer-softwareentwickler/typ-${typeSlug(movie.data.type)}/`;
+
+// Order links so the most "watch-relevant" platform shows first; unknown
+// platforms keep their natural order behind the known ones.
+const PLATFORM_ORDER = ['youtube', 'netflix', 'amazonprime', 'bpb'];
+const linkEntries = Object.entries(movie.data.links).sort(([a], [b]) => {
+	const ai = PLATFORM_ORDER.indexOf(a);
+	const bi = PLATFORM_ORDER.indexOf(b);
+	if (ai === -1 && bi === -1) return a.localeCompare(b);
+	if (ai === -1) return 1;
+	if (bi === -1) return -1;
+	return ai - bi;
+});
+// Primary link drives the title and thumbnail anchors. Falls back to the
+// trailer URL if the entry has no playable links yet (rare edge case).
+const primaryLink = linkEntries[0]?.[1] ?? movie.data.youtubeTrailerForThumbnail ?? '';
+
+const duration = movie.data.duration ? humanizeISO8601Duration(movie.data.duration) : '';
+const publishedDate = movie.data.publishedAt
+	? new Date(movie.data.publishedAt).toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' })
+	: '';
+
+const imdb = movie.data.ratings?.imdb;
+const ratingFormatter = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const integerFormatter = new Intl.NumberFormat('de-DE');
 ---
 
 <section
 	id={nameId.url}
 	class="movie py-8 md:py-12 bg-white overflow-hidden"
+	data-category={movie.data.category}
+	data-type={movie.data.type}
 	style="background-image: url('/images/elements/pattern-white.svg'); background-position: center;"
 >
 	<div class="container px-4 mx-auto">
 		<div class="flex flex-wrap lg:items-center -mx-4">
 			<div class="w-full md:w-8/12 px-4 mb-16 md:mb-0">
-				{
-					tags.map((element) => (
-						<TagBadge name={element.name} url={`/filme-fuer-softwareentwickler/${element.url}-filme/`} />
-					))
-				}
+				<TagBadge name={categoryLabel} url={categoryHref} />
+				<TagBadge name={typeLabel} url={typeHref} />
 
 				<h2 class="mb-8 text-4xl md:text-5xl leading-tight text-coolGray-900 font-bold tracking-tight">
-					<a href={movie.data.link} class="hover:underline hover:text-yellow-500" title={`${movie.data.name} auf YouTube ansehen`} rel="noopener">
-						{movie.data.name}
-					</a>
+					{primaryLink ? (
+						<a href={primaryLink} class="hover:underline hover:text-yellow-500" title={`${title} ansehen`} rel="noopener">
+							{title}
+						</a>
+					) : (
+						<span>{title}</span>
+					)}
 				</h2>
 				<p class="mb-6 text-lg md:text-xl text-coolGray-500 font-medium">
-					{description}
+					{descriptionParts.map((p) =>
+						p.kind === 'link' ? (
+							<a href={p.href} class="text-yellow-500 hover:underline" rel="noopener" target="_blank">{p.value}</a>
+						) : (
+							p.value
+						)
+					)}
 				</p>
 				<ul class="mb-4 text-lg md:text-xl text-coolGray-500 font-medium">
-					<li class="pb-2">Dauer: {duration}</li>
-					<li class="pb-2">Veröffentlicht: {publishedDate}</li>
-					<li class="pb-2 space-x-2">Sprache:
-						{movie.data.language.map((lang) => (
-							<span class="inline-block px-2 py-0.5 text-sm bg-coolGray-100 rounded">{lang.toUpperCase()}</span>
-						))}
-					</li>
+					{duration && <li class="pb-2">Dauer: {duration}</li>}
+					{publishedDate && <li class="pb-2">Veröffentlicht: {publishedDate}</li>}
+					{movie.data.language && movie.data.language.length > 0 && (
+						<li class="pb-2 space-x-2">Sprache:
+							{movie.data.language.map((lang) => (
+								<span class="inline-block px-2 py-0.5 text-sm bg-coolGray-100 rounded">{lang.toUpperCase()}</span>
+							))}
+						</li>
+					)}
+					{movie.data.subtitles && movie.data.subtitles.length > 0 && (
+						<li class="pb-2 space-x-2">Untertitel:
+							{movie.data.subtitles.map((sub) => (
+								<span class="inline-block px-2 py-0.5 text-sm bg-coolGray-100 rounded">{sub.toUpperCase()}</span>
+							))}
+						</li>
+					)}
+					{tags.length > 0 && (
+						<li class="pb-2">
+							Tags: {tags.map((tag) => <TagBadge name={tag} />)}
+						</li>
+					)}
+					{imdb && (
+						<li class="pb-2">
+							⭐ {movie.data.imdbID ? (
+								<a
+									href={`https://www.imdb.com/title/${movie.data.imdbID}/`}
+									class="hover:underline hover:text-yellow-500"
+									title={`${title} auf IMDb`}
+									rel="noopener"
+								>IMDb</a>
+							) : (
+								<span>IMDb</span>
+							)}: {ratingFormatter.format(imdb.averageRating)} / 10 ({integerFormatter.format(imdb.numVotes)} Bewertungen)
+						</li>
+					)}
 				</ul>
 
 				<div class="flex flex-wrap">
-					<div class="mb-4 mt-4 mr-4">
-						<a class="flex items-center" href={movie.data.link} title={`${movie.data.name} auf YouTube ansehen`} rel="noopener">
-							<img class="w-8" src="/images/brands/youtube.svg" alt={`${movie.data.name} auf YouTube`} title={`${movie.data.name} auf YouTube`} />
-							<span class="text-coolGray-500 text-lg m-2">YouTube</span>
-						</a>
-					</div>
+					{linkEntries.map(([platform, url]) => (
+						<div class="mb-4 mt-4 mr-4">
+							<a class="flex items-center" href={url} title={`${title} auf ${labelFor(LINK_PLATFORM_LABELS, platform)} ansehen`} rel="noopener">
+								<img class="w-8" src={iconFor(platform)} alt={`${title} auf ${labelFor(LINK_PLATFORM_LABELS, platform)}`} title={`${title} auf ${labelFor(LINK_PLATFORM_LABELS, platform)}`} />
+								<span class="text-coolGray-500 text-lg m-2">{labelFor(LINK_PLATFORM_LABELS, platform)}</span>
+							</a>
+						</div>
+					))}
 				</div>
 			</div>
 			<div class="w-full md:w-4/12 px-4">
 				<div class="relative mx-auto md:mr-0 max-w-max">
-					<a href={movie.data.link} title={`${movie.data.name} auf YouTube ansehen`} rel="noopener">
-						<Image class="rounded-2xl" src={movie.data.image} alt={`Film ${movie.data.name}`} title={`Film ${movie.data.name}`} loading="lazy" decoding="async" format="webp" quality={80} />
-					</a>
+					{primaryLink ? (
+						<a href={primaryLink} title={`${title} ansehen`} rel="noopener">
+							<Image class="rounded-2xl" src={movie.data.image} alt={`Film ${title}`} title={`Film ${title}`} loading="lazy" decoding="async" format="webp" quality={80} />
+						</a>
+					) : (
+						<Image class="rounded-2xl" src={movie.data.image} alt={`Film ${title}`} title={`Film ${title}`} loading="lazy" decoding="async" format="webp" quality={80} />
+					)}
 				</div>
 			</div>
 		</div>
