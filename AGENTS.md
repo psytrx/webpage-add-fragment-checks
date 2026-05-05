@@ -76,12 +76,27 @@ Each `cmd_*.go` file is one subcommand with a paired `_test.go`.
 Helpers in `website-admin/episode/` and `website-admin/utils/`.
 The CLI reads/writes the Astro content collections directly (`src/content/...`), so its tests double as the schema contract for sync output.
 
-## Conventions worth knowing
+## Conventions
 
 - Prettier with `prettier-plugin-astro` is the formatter (`.prettierrc`); CI enforces it (`.github/workflows/prettier.yml`).
 - Tailwind v4 via `@tailwindcss/vite`; no `tailwind.config.js` — config is CSS-first in `src/styles/`.
 - Tests: vitest for JS (`src/scripts/*.test.js`), `go test` for the CLI. CI workflows: `astro-testing.yml`, `javascript-testing.yml`, `go-testing.yml`, `links.yml` (lychee, config in `.lychee.toml`).
 - New display strings for movies/genres live in `src/scripts/movie-labels.js` and `src/data/awesome-software-engineering-*-*.json`, not in upstream JSON.
+
+## Go Unit Testing Conventions
+
+ - Prefer standard library (testing package, t.Run(), t.Errorf())
+ - Use testify/assert only when it significantly reduces boilerplate (deeply nested struct comparisons,
+ slice equality)
+ - Table-driven tests as default pattern
+ - Refactor to individual tests if a table test requires closures/anonymous setup functions
+ - Use t.TempDir() for file-based tests
+ - Use httptest.NewServer() for HTTP mocking (already in use)
+ - Use zerolog.Nop() for logger injection in statemanager tests (already in use)
+
+# JavaScript Unit Testing Conventions
+
+- vitest with describe/it, standard expect() assertions
 
 ## Change validation
 
