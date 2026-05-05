@@ -3519,6 +3519,18 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/episodes/266"
+  to = "/podcast/episode/266-level-titel-geld-die-spielregeln-für-beförderungen-gehälter?pkn=shortlink"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ep266"
+  to = "/podcast/episode/266-level-titel-geld-die-spielregeln-für-beförderungen-gehälter?pkn=shortlink"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.headers]
