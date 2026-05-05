@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { Image } from "astro:assets";
 import { URLify } from '../scripts/urlify.js';
 import { humanizeISO8601Duration } from '../scripts/duration.js';
-import { truncateDescription } from '../scripts/text.js';
+import { truncateDescription, linkify } from '../scripts/text.js';
 import {
 	CATEGORY_LABELS,
 	TYPE_LABELS,
@@ -29,7 +29,7 @@ const tags = movie.data.tags ?? [];
 const nameId = URLify(movie.data.slug);
 
 const title = localizedTitle(movie);
-const description = truncateDescription(localizedDescription(movie), 400);
+const descriptionParts = linkify(truncateDescription(localizedDescription(movie), 400));
 const categoryLabel = labelFor(CATEGORY_LABELS, movie.data.category);
 const typeLabel = labelFor(TYPE_LABELS, movie.data.type);
 const categoryHref = `/filme-fuer-softwareentwickler/kategorie-${categorySlug(movie.data.category)}/`;
@@ -83,7 +83,13 @@ const integerFormatter = new Intl.NumberFormat('de-DE');
 					)}
 				</h2>
 				<p class="mb-6 text-lg md:text-xl text-coolGray-500 font-medium">
-					{description}
+					{descriptionParts.map((p) =>
+						p.kind === 'link' ? (
+							<a href={p.href} class="text-yellow-500 hover:underline" rel="noopener" target="_blank">{p.value}</a>
+						) : (
+							p.value
+						)
+					)}
 				</p>
 				<ul class="mb-4 text-lg md:text-xl text-coolGray-500 font-medium">
 					{duration && <li class="pb-2">Dauer: {duration}</li>}
