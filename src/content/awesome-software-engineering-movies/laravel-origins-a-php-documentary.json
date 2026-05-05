@@ -18,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 6778,
-            "refreshedAt": "2026-05-05T10:46:12Z"
+            "refreshedAt": "2026-05-05T21:39:05Z"
         }
     },
     "slug": "laravel-origins-a-php-documentary",
@@ -34,6 +34,6 @@
     "title": "Laravel Origins: A PHP Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 172223
+        "youtube": 172227
     }
 }
