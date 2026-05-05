@@ -4,59 +4,36 @@ import MainHead from '../../components/MainHead.astro';
 import Nav from '../../components/Nav.astro';
 import SoftwareEngineeringMoviePreview from '../../components/SoftwareEngineeringMoviePreview.astro';
 import TagBadge from '../../components/TagBadge.astro';
-import { URLify } from '../../scripts/urlify.js';
-import { orderByName } from '../../scripts/sorting.js';
 import { getCollection } from "astro:content";
-
-import awesomeSoftwareEngineeringMovieTags from '../../data/awesome-software-engineering-movies-tags.json';
+import { orderByName } from '../../scripts/sorting.js';
+import { TYPE_LABELS, typeSlug, typeHeadline, labelFor } from '../../scripts/movie-labels.js';
 
 export async function getStaticPaths() {
 	const allMovies = await getCollection("awesome-software-engineering-movies");
-	const allMovieTagsUniqueInclNull = [...new Set(allMovies.flatMap((p) => p.data.tags))];
-	const allMovieTagsUnique = allMovieTagsUniqueInclNull.filter(function (tag) {
-		return tag != null;
-	});
+	const uniqueTypes = [...new Set(allMovies.map((m) => m.data.type).filter(Boolean))];
 
-	return allMovieTagsUnique.map((tag) => {
-		let t = URLify(tag);
-		let tagUrlName = t.url;
-		let tagName = t.name;
-
-		return {
-			params: { tag: tagUrlName },
-			props: { tagName, allMovies },
-		};
-	});
+	return uniqueTypes.map((typeEnglish) => ({
+		params: { type: typeSlug(typeEnglish) },
+		props: { typeEnglish, allMovies },
+	}));
 }
 
-const { tagName: tagHumanName, allMovies } = Astro.props;
+const { typeEnglish, allMovies } = Astro.props;
 
-let title = `${tagHumanName} Filme für Softwareentwickler:innen - Engineering Kiosk`;
+const typeLabel = labelFor(TYPE_LABELS, typeEnglish);
+const headline = typeHeadline(typeEnglish);
+
+let title = `${typeLabel} für Softwareentwickler:innen - Engineering Kiosk`;
+let description = `Kuratierte ${typeLabel}-Inhalte für Softwareentwickler:innen.`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-let customTitle = '';
-let tagDescription_short = '';
-let tagDescription_long = '';
-if (awesomeSoftwareEngineeringMovieTags.hasOwnProperty(tagHumanName)) {
-	tagDescription_short = awesomeSoftwareEngineeringMovieTags[tagHumanName]['short_desc'];
-	tagDescription_long = awesomeSoftwareEngineeringMovieTags[tagHumanName]['long_desc'];
-	customTitle = awesomeSoftwareEngineeringMovieTags[tagHumanName]['title'] || '';
-}
-
-// Filter movies by tag, sort by name
-let movies = allMovies.filter(function (p) {
-	if (p.data.tags == null) {
-		return false;
-	}
-	return p.data.tags.includes(tagHumanName);
-});
-
+let movies = allMovies.filter((m) => m.data.type === typeEnglish);
 movies = movies.sort(orderByName);
 ---
 
 <html lang="de">
 	<head>
-		<MainHead title={title} description={tagDescription_short} {canonicalURL} ogImageAlt="Filme für Softwareentwickler" />
+		<MainHead title={title} description={description} {canonicalURL} ogImageAlt="Filme für Softwareentwickler" />
 	</head>
 
 	<body class="antialiased bg-body text-body font-body">
@@ -69,9 +46,12 @@ movies = movies.sort(orderByName);
 						<div class="w-full md:w-3/4 mb-8 md:mb-0">
 							<TagBadge name="Kuratierte Filme für Softwareentwickler:innen" />
 							<h1 class="mb-4 text-4xl md:text-5xl leading-tight text-darkCoolGray-900 font-bold tracking-tight">
-								{customTitle || `Die besten ${tagHumanName}-Filme für Softwareentwickler:innen`}
+								{headline}
 							</h1>
-							{tagDescription_long && <p class="text-lg md:text-xl text-coolGray-500 font-medium">{tagDescription_long}</p>}
+							<p class="text-lg md:text-xl text-coolGray-500 font-medium">
+								Eine kuratierte Auswahl von <span class="font-bold">{movies.length} Inhalten</span> vom Typ {typeLabel}.
+								Zurück zur <a href="/filme-fuer-softwareentwickler/" class="text-yellow-500">vollständigen Filmliste</a>.
+							</p>
 						</div>
 						<div class="w-full md:w-1/4">
 							<a class="flex items-center justify-center py-2 px-4 ml-auto text-sm leading-5 text-yellow-50 font-medium bg-yellow-500 hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 md:max-w-max rounded-md" href="https://github.com/EngineeringKiosk/awesome-software-engineering-movies">

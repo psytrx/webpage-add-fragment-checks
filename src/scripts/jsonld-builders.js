@@ -141,6 +141,28 @@ export function buildPodcastDirectoryJsonLd(podcasts, canonicalURL, siteURL) {
  * @returns {object} JSON-LD object
  */
 export function buildMoviesDirectoryJsonLd(movies, canonicalURL, siteURL) {
+	const PLATFORM_ORDER = ['youtube', 'netflix', 'amazonprime', 'disneyplus', 'bpb'];
+
+	function pickPrimaryLink(links) {
+		const entries = Object.entries(links ?? {});
+		if (entries.length === 0) return null;
+		entries.sort(([a], [b]) => {
+			const ai = PLATFORM_ORDER.indexOf(a);
+			const bi = PLATFORM_ORDER.indexOf(b);
+			if (ai === -1 && bi === -1) return a.localeCompare(b);
+			if (ai === -1) return 1;
+			if (bi === -1) return -1;
+			return ai - bi;
+		});
+		return entries[0];
+	}
+
+	function youtubeVideoId(url) {
+		if (!url) return null;
+		const m = url.match(/[?&]v=([^&]+)/) || url.match(/youtu\.be\/([^?&/]+)/);
+		return m ? m[1] : null;
+	}
+
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
@@ -151,31 +173,51 @@ export function buildMoviesDirectoryJsonLd(movies, canonicalURL, siteURL) {
 		mainEntity: {
 			'@type': 'ItemList',
 			numberOfItems: movies.length,
-			itemListElement: movies.map((movie, index) => ({
-				'@type': 'ListItem',
-				position: index + 1,
-				item: {
+			itemListElement: movies.map((movie, index) => {
+				const primary = pickPrimaryLink(movie.data.links);
+				const item = {
 					'@type': 'VideoObject',
 					name: movie.data.name,
 					description: movie.data.description,
-					contentUrl: movie.data.link,
-					embedUrl: `https://www.youtube.com/embed/${movie.data.videoID}`,
 					thumbnailUrl: new URL(movie.data.image.src, siteURL).toString(),
-					duration: movie.data.duration,
-					uploadDate: movie.data.publishedAt,
-					inLanguage: movie.data.language,
-					keywords: movie.data.tags,
-					interactionStatistic: {
+				};
+				if (primary) item.contentUrl = primary[1];
+				const ytUrl = movie.data.links?.youtube;
+				const ytId = youtubeVideoId(ytUrl);
+				if (ytId) item.embedUrl = `https://www.youtube.com/embed/${ytId}`;
+				if (movie.data.duration) item.duration = movie.data.duration;
+				if (movie.data.publishedAt) item.uploadDate = movie.data.publishedAt;
+				if (movie.data.language) item.inLanguage = movie.data.language;
+				if (movie.data.tags?.length) item.keywords = movie.data.tags;
+				if (movie.data.views?.youtube) {
+					item.interactionStatistic = {
 						'@type': 'InteractionCounter',
 						interactionType: { '@type': 'WatchAction' },
-						userInteractionCount: movie.data.viewCount,
-					},
-					publisher: {
+						userInteractionCount: movie.data.views.youtube,
+					};
+				}
+				if (movie.data.channel?.title) {
+					item.publisher = {
 						'@type': 'Organization',
 						name: movie.data.channel.title,
-					},
-				},
-			})),
+					};
+				}
+				const imdb = movie.data.ratings?.imdb;
+				if (imdb) {
+					item.aggregateRating = {
+						'@type': 'AggregateRating',
+						ratingValue: imdb.averageRating,
+						ratingCount: imdb.numVotes,
+						bestRating: 10,
+						worstRating: 1,
+					};
+				}
+				return {
+					'@type': 'ListItem',
+					position: index + 1,
+					item,
+				};
+			}),
 		},
 	};
 }
