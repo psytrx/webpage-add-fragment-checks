@@ -4,6 +4,16 @@
         "long_desc": "",
         "usage_count": 1
     },
+    "Activism": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Anonymous": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
     "Backend": {
         "short_desc": "",
         "long_desc": "",
@@ -24,7 +34,22 @@
         "long_desc": "",
         "usage_count": 4
     },
+    "Content Moderation": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Data Analytics": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
     "Developer Tools": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Ethics": {
         "short_desc": "",
         "long_desc": "",
         "usage_count": 1
@@ -39,7 +64,32 @@
         "long_desc": "",
         "usage_count": 2
     },
+    "GNU/Linux": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Game Development": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
+    },
+    "Girls": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
     "Google": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Hacktivism": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
+    },
+    "Hardware": {
         "short_desc": "",
         "long_desc": "",
         "usage_count": 1
@@ -47,12 +97,22 @@
     "History": {
         "short_desc": "",
         "long_desc": "",
-        "usage_count": 18
+        "usage_count": 24
     },
     "IDE": {
         "short_desc": "",
         "long_desc": "",
         "usage_count": 1
+    },
+    "Indie Games": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Internet": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
     },
     "JavaScript": {
         "short_desc": "",
@@ -99,10 +159,15 @@
         "long_desc": "",
         "usage_count": 1
     },
+    "Open Internet": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
     "Open Source": {
         "short_desc": "",
         "long_desc": "",
-        "usage_count": 19
+        "usage_count": 20
     },
     "Orchestration": {
         "short_desc": "",
@@ -114,6 +179,21 @@
         "long_desc": "",
         "usage_count": 1
     },
+    "Personal Computing": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Politics": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Privacy": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
+    },
     "Programming Languages": {
         "short_desc": "",
         "long_desc": "",
@@ -124,7 +204,42 @@
         "long_desc": "",
         "usage_count": 1
     },
+    "STEM": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Security": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
     "Service Mesh": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Social Media": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
+    },
+    "Society": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 2
+    },
+    "Software Engineering": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Surveillance": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
+    },
+    "Valve": {
         "short_desc": "",
         "long_desc": "",
         "usage_count": 1
@@ -133,5 +248,10 @@
         "short_desc": "",
         "long_desc": "",
         "usage_count": 2
+    },
+    "Women in Tech": {
+        "short_desc": "",
+        "long_desc": "",
+        "usage_count": 1
     }
 }
