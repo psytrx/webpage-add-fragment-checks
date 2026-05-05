@@ -77,11 +77,12 @@ export function typeHeadline(type) {
 	}
 }
 
-// Title to render on a movie card, honouring localized.de overrides with
-// sensible fallbacks. Some upstream entries have an empty `title` and rely on
-// `name`, so we fall through both.
+// Title to render on a movie card. Prefer the German override when present,
+// otherwise the canonical short `name`. The verbose `title` field (often
+// includes subtitles like "| An origin story") is the last resort for the
+// rare case where both `localized.de.title` and `name` are missing.
 export function localizedTitle(movie) {
-	return movie.data.localized?.de?.title || movie.data.title || movie.data.name;
+	return movie.data.localized?.de?.title || movie.data.name || movie.data.title;
 }
 
 export function localizedDescription(movie) {
