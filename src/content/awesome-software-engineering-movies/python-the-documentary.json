@@ -1,4 +1,5 @@
 {
+    "category": "Programming Languages",
     "channel": {
         "id": "UCsUalyRg43M8D60mtHe6YcA",
         "title": "CultRepo "
@@ -17,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 33469,
-            "refreshedAt": "2026-05-05T08:48:21Z"
+            "refreshedAt": "2026-05-05T09:12:03Z"
         }
     },
     "slug": "python-the-documentary",
@@ -31,7 +32,8 @@
         "History"
     ],
     "title": "The Story of Python and how it took over the world | Python: The Documentary",
+    "type": "Documentary",
     "views": {
-        "youtube": 1080004
+        "youtube": 1080024
     }
 }

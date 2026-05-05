@@ -1,4 +1,5 @@
 {
+    "category": "Programming Languages",
     "channel": {
         "id": "UCDstQZHA9T8-ZP046R0KEXA",
         "title": "OfferZen Origins"
@@ -17,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 9557,
-            "refreshedAt": "2026-05-05T08:48:21Z"
+            "refreshedAt": "2026-05-05T09:12:03Z"
         }
     },
     "slug": "typescript-origins-the-documentary",
@@ -31,7 +32,8 @@
         "History"
     ],
     "title": "TypeScript Origins: The Documentary",
+    "type": "Documentary",
     "views": {
-        "youtube": 348068
+        "youtube": 348058
     }
 }

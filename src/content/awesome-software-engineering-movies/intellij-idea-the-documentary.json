@@ -1,4 +1,5 @@
 {
+    "category": "Applications / Frameworks / Systems",
     "channel": {
         "id": "UCsUalyRg43M8D60mtHe6YcA",
         "title": "CultRepo "
@@ -17,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 1514,
-            "refreshedAt": "2026-05-05T08:48:21Z"
+            "refreshedAt": "2026-05-05T09:12:03Z"
         }
     },
     "slug": "intellij-idea-the-documentary",
@@ -31,7 +32,8 @@
         "History"
     ],
     "title": "IntelliJ IDEA: The Documentary | An origin story",
+    "type": "Documentary",
     "views": {
-        "youtube": 42446
+        "youtube": 42444
     }
 }

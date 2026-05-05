@@ -1,4 +1,5 @@
 {
+    "category": "Applications / Frameworks / Systems",
     "channel": {
         "id": "UCro9rA8-YX-26UVNY8ewAKQ",
         "title": " Speakeasy Productions"
@@ -17,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 572,
-            "refreshedAt": "2026-05-05T08:48:21Z"
+            "refreshedAt": "2026-05-05T09:12:03Z"
         }
     },
     "slug": "inside-envoy-the-proxy-for-the-future",
@@ -31,7 +32,8 @@
         "Cloud Native"
     ],
     "title": "Inside Envoy: The Proxy for the Future [OFFICIAL FILM]",
+    "type": "Documentary",
     "views": {
-        "youtube": 116977
+        "youtube": 116976
     }
 }

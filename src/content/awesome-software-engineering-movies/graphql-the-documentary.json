@@ -1,4 +1,5 @@
 {
+    "category": "Applications / Frameworks / Systems",
     "channel": {
         "id": "UCsUalyRg43M8D60mtHe6YcA",
         "title": "CultRepo "
@@ -17,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 15215,
-            "refreshedAt": "2026-05-05T08:48:21Z"
+            "refreshedAt": "2026-05-05T09:12:03Z"
         }
     },
     "slug": "graphql-the-documentary",
@@ -35,6 +36,7 @@
         "History"
     ],
     "title": "GraphQL: The Documentary",
+    "type": "Documentary",
     "views": {
         "youtube": 599173
     }

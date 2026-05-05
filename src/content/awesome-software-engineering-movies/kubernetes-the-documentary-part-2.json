@@ -1,4 +1,5 @@
 {
+    "category": "Applications / Frameworks / Systems",
     "channel": {
         "id": "UCsUalyRg43M8D60mtHe6YcA",
         "title": "CultRepo "
@@ -17,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 5949,
-            "refreshedAt": "2026-05-05T08:48:21Z"
+            "refreshedAt": "2026-05-05T09:12:03Z"
         }
     },
     "slug": "kubernetes-the-documentary-part-2",
@@ -35,6 +36,7 @@
         "History"
     ],
     "title": "Kubernetes: The Documentary [PART 2]",
+    "type": "Documentary",
     "views": {
         "youtube": 225272
     }
