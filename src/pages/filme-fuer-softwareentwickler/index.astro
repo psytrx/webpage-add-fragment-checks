@@ -7,6 +7,7 @@ import TagBadge from '../../components/TagBadge.astro';
 import { getCollection } from "astro:content";
 import { orderByName } from '../../scripts/sorting.js';
 import { buildMoviesDirectoryJsonLd } from '../../scripts/jsonld-builders.js';
+import { CATEGORY_LABELS, TYPE_LABELS, labelFor } from '../../scripts/movie-labels.js';
 
 let title = 'Filme für Softwareentwickler:innen - Engineering Kiosk';
 let description = 'Kuratierte Liste der besten Filme und Dokumentationen für Softwareentwickler:innen: Geschichten zu Programmiersprachen, Open Source und Tech-Kultur – ausgewählt für Entwickler:innen und Tech-Nerds.';
@@ -16,12 +17,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 let awesomeSoftwareEngineeringMovies = await getCollection("awesome-software-engineering-movies");
 awesomeSoftwareEngineeringMovies.sort(orderByName);
 
+// Filter dropdown options sourced from the actual data so brand-new
+// categories/types appear without code changes.
+const categories = [...new Set(awesomeSoftwareEngineeringMovies.map((m) => m.data.category).filter(Boolean))]
+	.sort((a, b) => labelFor(CATEGORY_LABELS, a).localeCompare(labelFor(CATEGORY_LABELS, b), 'de'));
+const types = [...new Set(awesomeSoftwareEngineeringMovies.map((m) => m.data.type).filter(Boolean))]
+	.sort((a, b) => labelFor(TYPE_LABELS, a).localeCompare(labelFor(TYPE_LABELS, b), 'de'));
+
 const jsonLd = buildMoviesDirectoryJsonLd(awesomeSoftwareEngineeringMovies, canonicalURL, Astro.site);
 ---
 
 <html lang="de">
 	<head>
 		<MainHead title={title} description={description} {canonicalURL} ogImageAlt="Filme für Softwareentwickler" {jsonLd} />
+		<script src="/js/movie-listing-filter.js" is:inline></script>
 	</head>
 
 	<body class="antialiased bg-body text-body font-body">
@@ -47,10 +56,35 @@ const jsonLd = buildMoviesDirectoryJsonLd(awesomeSoftwareEngineeringMovies, cano
 							</div>
 						</div>
 					</div>
+					<div id="filter" class="invisible flex flex-wrap items-center mb-8">
+						<div class="w-full">
+							<div class="flex justify-start items-center flex-col md:flex-row gap-2">
+								<select id="filter-category" class="w-full md:w-auto p-3 text-center rounded-md text-yellow-50 font-medium bg-yellow-500 hover:bg-yellow-600 focus:ring-0 text-sm">
+									<option value="">Alle Kategorien</option>
+									{categories.map((c) => <option value={c}>{labelFor(CATEGORY_LABELS, c)}</option>)}
+								</select>
+								<select id="filter-type" class="w-full md:w-auto p-3 text-center rounded-md text-yellow-50 font-medium bg-yellow-500 hover:bg-yellow-600 focus:ring-0 text-sm">
+									<option value="">Alle Typen</option>
+									{types.map((t) => <option value={t}>{labelFor(TYPE_LABELS, t)}</option>)}
+								</select>
+								<p id="filter-count" class="invisible text-lg md:text-base mt-2 md:mt-0 md:ml-4 text-coolGray-500 font-medium">
+									<span id="filter-count-match"></span> von <span id="filter-count-total"></span> Filmen angezeigt.
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
 			{awesomeSoftwareEngineeringMovies.map((movie) => <SoftwareEngineeringMoviePreview movie={movie} />)}
+
+			<section id="no-filter-match" class="hidden pt-24 pb-4 bg-coolGray-50" style="background-image: url('/images/elements/pattern-light-big.svg'); background-position: center;">
+				<div class="container px-4 mx-auto">
+					<div class="mb-8 text-center">
+						<h3 class="mb-4 text-xl md:text-3xl leading-tight text-coolGray-900 font-bold tracking-tight">Leider passt kein Film zu deinen Filterkriterien :(</h3>
+					</div>
+				</div>
+			</section>
 
 			<section class="py-24 bg-coolGray-50" style="background-image: url('/images/elements/pattern-light-big.svg'); background-position: center;">
 				<div class="container px-4 mx-auto">
