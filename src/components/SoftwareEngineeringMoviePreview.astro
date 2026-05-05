@@ -37,7 +37,7 @@ const typeHref = `/filme-fuer-softwareentwickler/typ-${typeSlug(movie.data.type)
 
 // Order links so the most "watch-relevant" platform shows first; unknown
 // platforms keep their natural order behind the known ones.
-const PLATFORM_ORDER = ['youtube', 'netflix', 'amazonprime', 'disneyplus', 'bpb'];
+const PLATFORM_ORDER = ['youtube', 'netflix', 'amazonprime', 'bpb'];
 const linkEntries = Object.entries(movie.data.links).sort(([a], [b]) => {
 	const ai = PLATFORM_ORDER.indexOf(a);
 	const bi = PLATFORM_ORDER.indexOf(b);
