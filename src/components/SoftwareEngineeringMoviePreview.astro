@@ -72,7 +72,6 @@ const integerFormatter = new Intl.NumberFormat('de-DE');
 			<div class="w-full md:w-8/12 px-4 mb-16 md:mb-0">
 				<TagBadge name={categoryLabel} url={categoryHref} />
 				<TagBadge name={typeLabel} url={typeHref} />
-				{tags.map((tag) => <TagBadge name={tag} />)}
 
 				<h2 class="mb-8 text-4xl md:text-5xl leading-tight text-coolGray-900 font-bold tracking-tight">
 					{primaryLink ? (
@@ -101,6 +100,11 @@ const integerFormatter = new Intl.NumberFormat('de-DE');
 							{movie.data.subtitles.map((sub) => (
 								<span class="inline-block px-2 py-0.5 text-sm bg-coolGray-100 rounded">{sub.toUpperCase()}</span>
 							))}
+						</li>
+					)}
+					{tags.length > 0 && (
+						<li class="pb-2">
+							Tags: {tags.map((tag) => <TagBadge name={tag} />)}
 						</li>
 					)}
 					{imdb && (
