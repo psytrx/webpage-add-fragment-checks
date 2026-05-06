@@ -141,7 +141,7 @@ export function buildPodcastDirectoryJsonLd(podcasts, canonicalURL, siteURL) {
  * @returns {object} JSON-LD object
  */
 export function buildMoviesDirectoryJsonLd(movies, canonicalURL, siteURL) {
-	const PLATFORM_ORDER = ['youtube', 'netflix', 'amazonprime', 'bpb'];
+	const PLATFORM_ORDER = ['youtube', 'netflix', 'amazon_prime_video', 'hbo_max', 'apple_tv', 'rtl_plus', 'bpb'];
 
 	function pickPrimaryLink(links) {
 		const entries = Object.entries(links ?? {});
@@ -174,7 +174,10 @@ export function buildMoviesDirectoryJsonLd(movies, canonicalURL, siteURL) {
 			'@type': 'ItemList',
 			numberOfItems: movies.length,
 			itemListElement: movies.map((movie, index) => {
-				const primary = pickPrimaryLink(movie.data.links);
+				const primary = pickPrimaryLink({
+					...movie.data.links,
+					...(movie.data.localized?.de?.links ?? {}),
+				});
 				const item = {
 					'@type': 'VideoObject',
 					name: movie.data.name,

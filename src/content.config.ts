@@ -209,6 +209,7 @@ const awesomeSoftwareEngineeringMoviesCollection = defineCollection({
 					z.object({
 						title: z.string().optional(),
 						description: z.string().optional(),
+						links: z.record(z.string(), z.string().url()).optional(),
 					})
 				)
 				.optional(),
