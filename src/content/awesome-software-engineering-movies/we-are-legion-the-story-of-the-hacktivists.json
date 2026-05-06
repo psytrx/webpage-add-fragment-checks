@@ -14,6 +14,12 @@
     "links": {
         "youtube": "https://www.youtube.com/watch?v=4D1WJsdu6W8"
     },
+    "localized": {
+        "de": {
+            "description": "Ein Dokumentarfilm über die Arbeitsweise und Überzeugungen des selbsternannten „Hacktivisten\"-Kollektivs Anonymous.",
+            "title": "We Are Legion - Die Geschichte der Anonymous-Hacker"
+        }
+    },
     "name": "We Are Legion: The Story of the Hacktivists",
     "publishedAt": "2017-10-30T16:58:58Z",
     "ratings": {
@@ -24,7 +30,7 @@
         },
         "youtube": {
             "likeCount": 1048,
-            "refreshedAt": "2026-05-05T21:39:05Z"
+            "refreshedAt": "2026-05-06T08:33:59Z"
         }
     },
     "slug": "we-are-legion-the-story-of-the-hacktivists",
@@ -40,6 +46,6 @@
     "title": "We Are Legion The Story of the Hacktivists Full HD Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 65089
+        "youtube": 65091
     }
 }

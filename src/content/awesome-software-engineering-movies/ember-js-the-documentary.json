@@ -18,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 2453,
-            "refreshedAt": "2026-05-05T21:39:05Z"
+            "refreshedAt": "2026-05-06T08:33:59Z"
         }
     },
     "slug": "ember-js-the-documentary",
@@ -36,6 +36,6 @@
     "title": "Ember.js: The Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 132568
+        "youtube": 132570
     }
 }
