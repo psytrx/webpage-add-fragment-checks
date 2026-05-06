@@ -18,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 9836,
-            "refreshedAt": "2026-05-06T10:09:50Z"
+            "refreshedAt": "2026-05-06T10:13:20Z"
         }
     },
     "slug": "ruby-on-rails-the-documentary",
@@ -36,6 +36,6 @@
     "title": "Ruby on Rails: The Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 319775
+        "youtube": 319777
     }
 }

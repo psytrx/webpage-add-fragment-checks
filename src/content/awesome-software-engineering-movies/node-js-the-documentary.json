@@ -17,8 +17,8 @@
     "publishedAt": "2024-03-21T18:00:07Z",
     "ratings": {
         "youtube": {
-            "likeCount": 23870,
-            "refreshedAt": "2026-05-06T10:09:50Z"
+            "likeCount": 23871,
+            "refreshedAt": "2026-05-06T10:13:20Z"
         }
     },
     "slug": "node-js-the-documentary",
@@ -34,6 +34,6 @@
     "title": "Node.js: The Documentary | An origin story",
     "type": "Documentary",
     "views": {
-        "youtube": 835265
+        "youtube": 835273
     }
 }

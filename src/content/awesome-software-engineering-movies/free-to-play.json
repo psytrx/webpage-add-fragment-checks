@@ -25,8 +25,8 @@
             "refreshedAt": "2026-05-06T08:44:42Z"
         },
         "youtube": {
-            "likeCount": 115116,
-            "refreshedAt": "2026-05-06T10:09:50Z"
+            "likeCount": 115115,
+            "refreshedAt": "2026-05-06T10:13:20Z"
         }
     },
     "slug": "free-to-play",
@@ -66,6 +66,6 @@
     "title": "Free to Play",
     "type": "Documentary",
     "views": {
-        "youtube": 6886581
+        "youtube": 6886550
     }
 }
