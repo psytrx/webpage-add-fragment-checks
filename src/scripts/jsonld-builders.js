@@ -174,7 +174,10 @@ export function buildMoviesDirectoryJsonLd(movies, canonicalURL, siteURL) {
 			'@type': 'ItemList',
 			numberOfItems: movies.length,
 			itemListElement: movies.map((movie, index) => {
-				const primary = pickPrimaryLink(movie.data.links);
+				const primary = pickPrimaryLink({
+					...movie.data.links,
+					...(movie.data.localized?.de?.links ?? {}),
+				});
 				const item = {
 					'@type': 'VideoObject',
 					name: movie.data.name,
