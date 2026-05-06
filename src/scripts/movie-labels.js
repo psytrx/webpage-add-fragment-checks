@@ -19,13 +19,13 @@ export const TYPE_LABELS = {
 export const LINK_PLATFORM_LABELS = {
 	youtube: 'YouTube',
 	netflix: 'Netflix',
-	amazonprime: 'Amazon Prime',
+	amazon_prime_video: 'Amazon Prime',
 	bpb: 'Bundeszentrale für politische Bildung',
 };
 
 // Brand SVGs that exist under public/images/brands/. Anything not in this set
 // falls back to the generic website icon.
-const KNOWN_BRAND_ICONS = new Set(['youtube', 'netflix', 'amazonprime']);
+const KNOWN_BRAND_ICONS = new Set(['youtube', 'netflix', 'amazon_prime_video']);
 
 export function iconFor(platform) {
 	if (KNOWN_BRAND_ICONS.has(platform)) {

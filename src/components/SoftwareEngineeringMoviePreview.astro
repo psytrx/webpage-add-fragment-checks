@@ -37,7 +37,7 @@ const typeHref = `/filme-fuer-softwareentwickler/typ-${typeSlug(movie.data.type)
 
 // Order links so the most "watch-relevant" platform shows first; unknown
 // platforms keep their natural order behind the known ones.
-const PLATFORM_ORDER = ['youtube', 'netflix', 'amazonprime', 'bpb'];
+const PLATFORM_ORDER = ['youtube', 'netflix', 'amazon_prime_video', 'bpb'];
 // Merge top-level links with German overrides. localized.de.links wins on key
 // collision so a German viewer gets the .de URL when upstream provides one.
 const mergedLinks = {
