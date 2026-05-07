@@ -17,8 +17,8 @@
     "publishedAt": "2022-06-21T16:40:26Z",
     "ratings": {
         "youtube": {
-            "likeCount": 6992,
-            "refreshedAt": "2026-05-06T10:13:20Z"
+            "likeCount": 6993,
+            "refreshedAt": "2026-05-07T07:55:17Z"
         }
     },
     "slug": "svelte-origins-a-javascript-documentary",
@@ -34,6 +34,6 @@
     "title": "Svelte Origins: A JavaScript Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 211191
+        "youtube": 211201
     }
 }

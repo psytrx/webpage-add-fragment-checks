@@ -17,8 +17,8 @@
     "publishedAt": "2020-02-24T18:20:37Z",
     "ratings": {
         "youtube": {
-            "likeCount": 52875,
-            "refreshedAt": "2026-05-06T10:13:20Z"
+            "likeCount": 52876,
+            "refreshedAt": "2026-05-07T07:55:17Z"
         }
     },
     "slug": "vue-js-the-documentary",
@@ -41,6 +41,6 @@
     "title": "Vue.js: The Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 1638120
+        "youtube": 1638167
     }
 }

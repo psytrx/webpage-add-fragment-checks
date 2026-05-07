@@ -17,8 +17,8 @@
     "publishedAt": "2022-10-25T13:45:07Z",
     "ratings": {
         "youtube": {
-            "likeCount": 3548,
-            "refreshedAt": "2026-05-06T10:13:20Z"
+            "likeCount": 3549,
+            "refreshedAt": "2026-05-07T07:55:17Z"
         }
     },
     "slug": "prometheus-the-documentary",
@@ -37,6 +37,6 @@
     "title": "Prometheus: The Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 143750
+        "youtube": 143763
     }
 }

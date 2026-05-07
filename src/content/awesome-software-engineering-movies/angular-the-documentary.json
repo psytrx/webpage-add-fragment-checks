@@ -17,8 +17,8 @@
     "publishedAt": "2025-02-04T16:59:19Z",
     "ratings": {
         "youtube": {
-            "likeCount": 3545,
-            "refreshedAt": "2026-05-06T10:13:20Z"
+            "likeCount": 3544,
+            "refreshedAt": "2026-05-07T07:55:17Z"
         }
     },
     "slug": "angular-the-documentary",
@@ -35,6 +35,6 @@
     "title": "Angular: The Documentary | An origin story",
     "type": "Documentary",
     "views": {
-        "youtube": 120834
+        "youtube": 120869
     }
 }
