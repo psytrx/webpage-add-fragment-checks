@@ -3,7 +3,7 @@
 import MeetupEvent from './MeetupEvent.astro';
 import Talk from './Talk.astro';
 
-import { formatDateWithoutWeekday } from '../../scripts/date.js';
+import { formatDateWithoutWeekday, meetupArchiveAnchor } from '../../scripts/date.js';
 import CompanyLogo from './CompanyLogo.astro';
 
 export interface Props {
@@ -25,7 +25,7 @@ const { headline, meetupsToShow, archive, meetupName, meetupSlug, meetupImage, s
 	{
 		meetupsToShow.map((meetup, i) => (
 			<>
-				<div class="container px-4 mx-auto" id={`meetup-${formatDateWithoutWeekday(meetup.date, 'en-GB').toLowerCase().replace(/[^a-z0-9-]/g, '-')}`}>
+				<div class="container px-4 mx-auto" id={meetupArchiveAnchor(meetup.date)}>
 					<div class="mb-16 text-center">
 						<span class="inline-block py-px px-2 mb-4 text-xs leading-5 text-yellow-500 bg-yellow-100 font-medium uppercase rounded-9xl">{headline}</span>
 						<h1 class="mb-4 text-3xl md:text-5xl leading-tight text-coolGray-900 font-bold tracking-tight">

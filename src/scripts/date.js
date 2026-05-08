@@ -29,6 +29,12 @@ export function formatDateWithoutWeekday(date, locale = 'de-DE') {
 	return new Date(date).toLocaleDateString(locale, options);
 }
 
+// returns the anchor id used by MeetupListing/MeetupArchiveEvent so callers
+// can build links to a specific meetup, e.g. "meetup-29-april-2026"
+export function meetupArchiveAnchor(date) {
+	return `meetup-${formatDateWithoutWeekday(date, 'en-GB').toLowerCase().replace(/[^a-z0-9-]/g, '-')}`;
+}
+
 // returns the time in the format HH:MM
 export function formatTime(date, locale = 'de-DE', timeZone = 'Europe/Berlin') {
 	const options = {
