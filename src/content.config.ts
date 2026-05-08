@@ -82,6 +82,9 @@ const meetupSchema = ({ image }) =>
 				youtube: z.string().optional(),
 				website: z.string().optional(),
 				bio: z.string().optional(),
+				// Either a filename inside `public/meetup/<region>/slides/` (e.g. "2602-roland-golla.pdf")
+				// or an absolute http(s) URL to a hosted slide deck. Filenames get prefixed with
+				// /meetup/<region>/slides/ at render time (Talk.astro); URLs are used as-is.
 				slides: z.string().optional(),
 				language: z.enum(['en', 'de']).optional(),
 			})
