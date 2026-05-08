@@ -1,6 +1,6 @@
 ---
 import MainHead from '../MainHead.astro';
-import { formatDate } from '../../scripts/date.js';
+import { formatDate, meetupArchiveAnchor } from '../../scripts/date.js';
 import { createMeetupHelpers } from '../../scripts/meetups.js';
 
 export interface Props {
@@ -12,6 +12,7 @@ export interface Props {
 }
 
 const { collectionName, meetupName, pageTitle, pageDescription, ogImage } = Astro.props;
+const meetupSlug = collectionName.replace(/^meetup-/, '');
 
 const { getNextMeetup, getPastMeetups } = await createMeetupHelpers(collectionName);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -97,7 +98,15 @@ speakerStats.nonbinaryPercentage = Math.round((speakerStats.nonbinary / speakerS
                     <tbody>
                         {allMeetups.map((meetup) => (
                             <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 border-b">{formatDate(meetup.date)}</td>
+                                <td class="px-6 py-4 border-b">
+                                    {new Date(meetup.date) <= new Date() ? (
+                                        <a href={`/meetup/${meetupSlug}/archive/#${meetupArchiveAnchor(meetup.date)}`} class="text-yellow-500 hover:underline">
+                                            {formatDate(meetup.date)}
+                                        </a>
+                                    ) : (
+                                        formatDate(meetup.date)
+                                    )}
+                                </td>
                                 <td class="px-6 py-4 border-b">{meetup.location.name}</td>
                                 <td class="px-6 py-4 border-b">
                                     {meetup.talks.filter(t => t._announced).map(talk => `${talk.name} (${talk.title})`).join(', ') || 'no data'}

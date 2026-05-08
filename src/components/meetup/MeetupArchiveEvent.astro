@@ -2,14 +2,14 @@
 import type { CollectionEntry } from 'astro:content';
 import CompanyLogo from '../meetup/CompanyLogo.astro';
 import MeetupArchiveEventTalk from './MeetupArchiveEventTalk.astro';
-import { formatDateWithoutWeekday } from '../../scripts/date.js';
+import { formatDateWithoutWeekday, meetupArchiveAnchor } from '../../scripts/date.js';
 
 export interface Props {
 	meetup: CollectionEntry<'meetup'>;
 }
 
 const { meetup } = Astro.props;
-const meetupId = `meetup-${formatDateWithoutWeekday(meetup.date, 'en-GB').toLowerCase().replace(/[^a-z0-9-]/g, '-')}`;
+const meetupId = meetupArchiveAnchor(meetup.date);
 
 ---
 <a href={`#${meetupId}`} class="block flex flex-col md:flex-row border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-all cursor-pointer bg-white hover:bg-yellow-50 no-underline text-inherit">
