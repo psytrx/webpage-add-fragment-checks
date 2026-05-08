@@ -17,8 +17,8 @@
     "publishedAt": "2023-02-10T18:00:07Z",
     "ratings": {
         "youtube": {
-            "likeCount": 40563,
-            "refreshedAt": "2026-05-07T07:55:17Z"
+            "likeCount": 40565,
+            "refreshedAt": "2026-05-08T20:46:41Z"
         }
     },
     "slug": "react-js-the-documentary",
@@ -37,6 +37,6 @@
     "title": "How A Small Team of Developers Created React at Facebook | React.js: The Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 1641587
+        "youtube": 1641892
     }
 }
