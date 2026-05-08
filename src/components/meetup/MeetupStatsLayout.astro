@@ -125,11 +125,20 @@ speakerStats.nonbinaryPercentage = Math.round((speakerStats.nonbinary / speakerS
                                                 })
                                         </script>
                                     )}
-                                    {(meetup.participants?.newParticipants && meetup.participants.newParticipants > 0 && meetup.participants.registered) && (
-                                        <br>
-                                        <span class="text-sm text-gray-500">
-                                            ({meetup.participants.newParticipants}/{(meetup.participants.newParticipants / meetup.participants.registered * 100).toFixed(0)}% new)
-                                        </span>
+                                    {/* newParticipants tri-state: omitted = silent, null = "no data", number = count. See `newParticipants` in src/content.config.ts. */}
+                                    {meetup.participants?.registered && meetup.participants.newParticipants === null && (
+                                        <>
+                                            <br>
+                                            <span class="text-sm text-gray-500">(no data for first timers)</span>
+                                        </>
+                                    )}
+                                    {meetup.participants?.registered && typeof meetup.participants.newParticipants === 'number' && (
+                                        <>
+                                            <br>
+                                            <span class="text-sm text-gray-500">
+                                                ({meetup.participants.newParticipants}/{(meetup.participants.newParticipants / meetup.participants.registered * 100).toFixed(0)}% new)
+                                            </span>
+                                        </>
                                     )}
                                     {(meetup.registrationClosed ) && (
                                         <br>

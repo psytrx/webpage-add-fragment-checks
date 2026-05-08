@@ -96,7 +96,11 @@ const meetupSchema = ({ image }) =>
 						female: z.number().optional(),
 					})
 					.optional(),
-				newParticipants: z.number().optional(),
+				// Three states for newParticipants:
+				//   - omitted: not tracked (legacy / not yet considered) — no sub-line rendered
+				//   - null:    explicitly "no first-timer data for this event" — renders "(no data for first timers)"
+				//   - number:  actual count (0 is a legitimate datum meaning zero first-timers)
+				newParticipants: z.number().nullable().optional(),
 			})
 			.optional(),
 		speakers: z
