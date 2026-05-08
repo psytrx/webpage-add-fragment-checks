@@ -10,6 +10,7 @@ talks:
     name: 'Brecht De Ruyte'
     title: 'CSS State Machine'
     language: en
+    slides: 'https://talks.utilitybend.com/css-state-machine/info'
     description: |
       For years, managing UI state on the web meant reaching for JavaScript. But in 2026, CSS has quietly become a state machine of its own. Pseudo-classes track interaction. Media queries read environment and user preferences. :has() observes the DOM tree. Container queries respond to size, style, scroll position, and even anchor placement. Scroll-driven and scroll-triggered animations react to where the user is on the page. And with sibling-index(), CSS can now respond to what's happening next door.
 
@@ -26,6 +27,7 @@ talks:
     name: 'Alaa Reuschenbach & Lucas Dohmen'
     title: 'Performance over Perfection'
     language: en
+    slides: '2604-alaa-reuschenbach-and-lucas-dohmen.pdf'
     description: |
       Web performance is no longer a luxury—it’s a business imperative: Faster pages boost revenue, improve conversion rates, lift SEO rankings, enhance accessibility and even benefit everyday user productivity.
 
