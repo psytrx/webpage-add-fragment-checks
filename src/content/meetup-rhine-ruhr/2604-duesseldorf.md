@@ -43,4 +43,13 @@ talks:
       Alaa specializes in squeezing hidden speed gains out of complex e‑commerce platforms. He excels at breaking down technical concepts in an understandable way and enjoys sharing his knowledge with the community. When he’s not refactoring code, you’ll find him in the driver’s seat of a racing simulator—because, just like in code, every millisecond counts. 🏎️
 
       Lucas has 20 years of experience building and scaling heavily used web applications. Most recently he led the web team at komoot, where he spearheaded a performance overhaul that delivered measurable speed improvements for 45 million users globally. As co‑author of the The Rails Way series, conference speaker, and podcaster, Lucas is passionate about turning deep technical knowledge into practical, sustainable solutions.
+participants:
+  registered: 39
+  present:
+    total: 31
+    male: 29
+    female: 2
+speakers:
+  female: 0
+  male: 3
 ---
