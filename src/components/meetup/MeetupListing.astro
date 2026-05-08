@@ -14,9 +14,10 @@ export interface Props {
 	meetupSlug: string;
 	meetupImage: string;
 	showGeneralLanguageNote?: boolean;
+	hasPastMeetups?: boolean;
 }
 
-const { headline, meetupsToShow, archive, meetupName, meetupSlug, meetupImage, showGeneralLanguageNote = false } = Astro.props
+const { headline, meetupsToShow, archive, meetupName, meetupSlug, meetupImage, showGeneralLanguageNote = false, hasPastMeetups = false } = Astro.props
 
 
 ---
@@ -42,14 +43,6 @@ const { headline, meetupsToShow, archive, meetupName, meetupSlug, meetupImage, s
 							<Talk talk={talk} meetupSlug={meetupSlug} />
 						))}
 					</div>
-					{!archive && (
-						<div class="text-center mt-8 text-lg md:text-xl text-coolGray-500 font-medium">
-							Find previous talks in the{' '}
-							<a href="./archive/" class="text-yellow-500">
-								Engineering Kiosk {meetupName} Talks Archive
-							</a>
-						</div>
-					)}
 				</div>
         {meetup && meetup.talks && meetup.talks[0] && meetup.talks[0].name && meetup.talks[0].title && meetup.location.name && meetup.location.address && (
 				    <MeetupEvent event={meetup} meetupName={meetupName} meetupSlug={meetupSlug} meetupImage={meetupImage} />
@@ -57,4 +50,12 @@ const { headline, meetupsToShow, archive, meetupName, meetupSlug, meetupImage, s
 			</>
 		))
 	}
+	{!archive && hasPastMeetups && (
+		<div class="container px-4 mx-auto text-center mt-8 text-lg md:text-xl text-coolGray-500 font-medium">
+			Find previous talks in the{' '}
+			<a href="./archive/" class="text-yellow-500">
+				Engineering Kiosk {meetupName} Talks Archive
+			</a>
+		</div>
+	)}
 </section>
