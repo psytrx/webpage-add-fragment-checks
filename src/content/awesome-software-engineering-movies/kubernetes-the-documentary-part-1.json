@@ -18,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 12677,
-            "refreshedAt": "2026-05-09T11:16:35Z"
+            "refreshedAt": "2026-05-09T11:30:42Z"
         }
     },
     "slug": "kubernetes-the-documentary-part-1",
@@ -39,6 +39,6 @@
     "title": "Kubernetes: The Documentary [PART 1]",
     "type": "Documentary",
     "views": {
-        "youtube": 514281
+        "youtube": 514279
     }
 }

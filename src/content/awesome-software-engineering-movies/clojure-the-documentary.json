@@ -17,8 +17,8 @@
     "publishedAt": "2026-04-16T18:00:22Z",
     "ratings": {
         "youtube": {
-            "likeCount": 3725,
-            "refreshedAt": "2026-05-09T11:16:35Z"
+            "likeCount": 3726,
+            "refreshedAt": "2026-05-09T11:30:42Z"
         }
     },
     "slug": "clojure-the-documentary",
@@ -34,6 +34,6 @@
     "title": "How one programmer's pet project changed how we think about software",
     "type": "Documentary",
     "views": {
-        "youtube": 191151
+        "youtube": 191162
     }
 }

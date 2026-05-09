@@ -18,7 +18,7 @@
     "ratings": {
         "youtube": {
             "likeCount": 8061,
-            "refreshedAt": "2026-05-09T11:16:35Z"
+            "refreshedAt": "2026-05-09T11:30:42Z"
         }
     },
     "slug": "elixir-the-documentary",
@@ -35,6 +35,6 @@
     "title": "Elixir: The Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 261842
+        "youtube": 261839
     }
 }
