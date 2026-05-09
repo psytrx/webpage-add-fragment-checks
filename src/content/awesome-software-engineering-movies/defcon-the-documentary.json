@@ -23,8 +23,8 @@
             "refreshedAt": "2026-05-06T10:44:06Z"
         },
         "youtube": {
-            "likeCount": 7879,
-            "refreshedAt": "2026-05-08T20:46:41Z"
+            "likeCount": 7880,
+            "refreshedAt": "2026-05-09T11:16:35Z"
         }
     },
     "slug": "defcon-the-documentary",
@@ -40,6 +40,6 @@
     "title": "DEFCON - The Full Documentary",
     "type": "Documentary",
     "views": {
-        "youtube": 858930
+        "youtube": 858944
     }
 }
